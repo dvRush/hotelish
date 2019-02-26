@@ -1,0 +1,40 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+    expose:
+      - 5432
+
+  app: &app
+    build: .
+    env_file:
+      - .env
+    environment:
+      - BUNDLE_PATH=/bundle
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASS=
+    volumes:
+      - bundle_path:/bundle
+      - .:/app
+    depends_on:
+      - db
+
+  web:
+    <<: *app
+    command: bundle exec rails server -b 0.0.0.0
+    ports:
+      - 3000:3000
+
+  mailcatcher:
+    image: hinshun/mailcatcher
+    ports:
+      - 1080:1080
+
+
+volumes:
+  bundle_path:
+  db:
