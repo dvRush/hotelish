@@ -48,7 +48,7 @@ feature 'Manage reservations', js: true do
     expect(page).to have_content '09 de Janeiro de 2020, 12:00'
     expect(page).to have_content 'Depósito bancário'
     expect(page).to have_content 'AirBnb'
-    expect(page).to have_content 'Não'
+    expect(page).to have_content 'NÃO'
 
     click_on 'Remover Reserva'
 
