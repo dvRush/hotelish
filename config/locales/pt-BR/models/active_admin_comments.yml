@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      active_admin/comment:
+        one: Nota
+        other: Notas
+    attributes:
+      active_admin/comment:
+        created_at: Criado em
+        resource_type: Tipo de Objeto
+        author_type: Tipo de Autor
+        body: Conteúdo
+        author: Autor
+        add: Adicionar Comentário
+        delete: Deletar comentário
+        delete_confirmation: Tem certeza que deseja excluir este comentário?
+        resource: Objeto
+        no_comments_yet: Nenhum comentário.
+        author_missing: Anônimo
+        title_content: "Comentários: %{count}"
+        errors:
+          empty_text: O comentário não foi salvo porque o texto estava vazio.
