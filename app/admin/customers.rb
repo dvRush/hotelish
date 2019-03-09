@@ -16,6 +16,7 @@ ActiveAdmin.register Customer do
       row :document
       row :phone
       row :email
+      row :source
     end
 
     panel "Endereço" do
@@ -40,6 +41,7 @@ ActiveAdmin.register Customer do
       f.input :document
       f.input :phone
       f.input :email
+      f.input :source
 
       f.inputs do
         f.has_many :address,
@@ -80,6 +82,7 @@ ActiveAdmin.register Customer do
     :email,
     :document,
     :phone,
+    :source,
     address_attributes: [
       :zip_code,
       :street,
