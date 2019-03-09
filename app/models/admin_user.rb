@@ -5,4 +5,10 @@ class AdminUser < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+
+  validates :name, presence: true
+
+  def to_s
+    name.presence || email
+  end
 end
