@@ -1,4 +1,16 @@
 ActiveAdmin.register Reservation do
+  index do
+    id_column
+
+    column :accommodation
+    column :customer
+    column :check_in
+    column :check_out
+    column :paid
+
+    actions
+  end
+
   form do |f|
     inputs do
       f.input :customer

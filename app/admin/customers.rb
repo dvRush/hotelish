@@ -1,28 +1,11 @@
 ActiveAdmin.register Customer do
-  form do |f|
-    inputs do
-      f.input :name
-      f.input :document
-      f.input :phone
-      f.input :email
-
-      f.inputs do
-        f.has_many :address,
-          heading: Address.model_name.human,
-          allow_destroy: false,
-          new_record: false do |fa|
-
-          fa.input :zip_code
-          fa.input :street
-          fa.input :number
-          fa.input :neighborhood
-          fa.input :complement
-          fa.input :city
-          fa.input :state
-          fa.input :country, as: :string
-        end
-      end
+  index do
+    column do |customer|
+      link_to customer.name, admin_customer_path(customer)
     end
+    column :phone
+    column :document
+    column :email
 
     actions
   end
@@ -49,6 +32,34 @@ ActiveAdmin.register Customer do
     end
 
     active_admin_comments
+  end
+
+  form do |f|
+    inputs do
+      f.input :name
+      f.input :document
+      f.input :phone
+      f.input :email
+
+      f.inputs do
+        f.has_many :address,
+          heading: Address.model_name.human,
+          allow_destroy: false,
+          new_record: false do |fa|
+
+          fa.input :zip_code
+          fa.input :street
+          fa.input :number
+          fa.input :neighborhood
+          fa.input :complement
+          fa.input :city
+          fa.input :state
+          fa.input :country, as: :string
+        end
+      end
+    end
+
+    actions
   end
 
   controller do
