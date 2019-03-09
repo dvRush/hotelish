@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      accommodation:
+        one: Acomodação
+        other: Acomodações
+    attributes:
+      accommodation:
+        customer: Cliente
+        title: Título
+        description: Descrição
+        value: Valor
+        available: Disponível
+        type: Tipo
+        updated_at: Atualizado em
+        created_at: Criado em
