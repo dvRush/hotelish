@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      customer:
+        one: Cliente
+        other: Clientes
+    attributes:
+      customer:
+        name: Nome
+        email: E-mail
+        document: Documento
+        phone: Telefone
+        updated_at: Atualizado em
+        created_at: Criado em
