@@ -1,6 +1,15 @@
 ActiveAdmin.register Reservation do
   menu priority: 2
 
+  I18n.with_options(scope: 'activerecord.scopes.reservation') do |i18n|
+    scope i18n.t('actives'),            :actives
+    scope i18n.t('for_current_month'),  :for_current_month
+    scope i18n.t('opens'),              :opens
+    scope i18n.t('previous'),           :previous
+    scope i18n.t('paids'),              :paids
+    scope i18n.t('unpaids'),            :unpaids
+  end
+
   index do
     id_column
 

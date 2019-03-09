@@ -13,3 +13,11 @@ pt-BR:
         payment_method: Forma de pagamento
         source: Fonte de captação
         paid: Pago
+    scopes:
+      reservation:
+        actives: Ativas
+        for_current_month: Neste mês
+        opens: Abertas
+        previous: Anteriores
+        paids: Pagas
+        unpaids: Não pagas
