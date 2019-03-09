@@ -125,4 +125,48 @@ feature 'Manage reservations', js: true do
       expect(page).to have_content 'Flat 106'
     end
   end
+
+  scenario 'admin should be able to create a new reservation with ' \
+   'a new customer in the same page' do
+
+    create(:accommodation, title: 'Flat 101')
+
+    click_on 'Reservas'
+    click_on 'Novo(a) Reserva'
+
+    check 'Adicionar novo'
+
+    fill_in 'Nome',         with: 'Jhon Doe'
+    fill_in 'E-mail',       with: 'jhon@doe.com'
+    fill_in 'Documento',    with: '123.456.789-00'
+    fill_in 'Telefone',     with: '(86) 12345-1234'
+    fill_in 'CEP',          with: '64123-321'
+    fill_in 'Logradouro',   with: 'Rua Dois de Novembro'
+    fill_in 'Número',       with: '1234'
+    fill_in 'Complemento',  with: 'Quadra X'
+    fill_in 'Bairro',       with: 'Centro'
+    fill_in 'Cidade',       with: 'Teresina'
+    fill_in 'Estado',       with: 'Piauí'
+    fill_in 'País',         with: 'Brasil'
+
+    select 'Flat 101',              from: 'Acomodação'
+    fill_in 'Check-in',             with: '01/01/2020 12:00'
+    fill_in 'Check-out',            with: '10/01/2020 12:00'
+    fill_in 'Forma de pagamento',   with: 'Espécie'
+
+    check 'Pago'
+
+    click_on 'Criar Reserva'
+
+    within '#main_content' do
+      expect(page).to have_content 'Detalhes do(a) Reserva'
+
+      expect(page).to have_content 'Flat 101'
+      expect(page).to have_content '01 de Janeiro de 2020, 12:00'
+      expect(page).to have_content '10 de Janeiro de 2020, 12:00'
+      expect(page).to have_content 'Espécie'
+      expect(page).to have_content 'SIM'
+      expect(page).to have_content 'Senhor Barriga'
+    end
+  end
 end

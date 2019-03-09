@@ -3,6 +3,10 @@ class Reservation < ApplicationRecord
   belongs_to :accommodation, required: true
   belongs_to :author, optional: true, class_name: 'AdminUser'
 
+  attr_accessor :new_customer
+
+  accepts_nested_attributes_for :customer
+
   validates :check_in, presence: true
 
   scope :paids,     -> { where(paid: true) }
