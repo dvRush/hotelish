@@ -13,6 +13,7 @@ pt-BR:
         payment_method: Forma de pagamento
         source: Fonte de captação
         paid: Pago
+        author: Autor
     scopes:
       reservation:
         actives: Ativas

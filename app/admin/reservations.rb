@@ -36,11 +36,25 @@ ActiveAdmin.register Reservation do
     actions
   end
 
-  permit_params :customer_id,
-    :accommodation_id,
-    :check_in,
-    :check_out,
-    :payment_method,
-    :source,
-    :paid
+  permit_params do
+    params = %i(
+      customer_id
+      accommodation_id
+      check_in
+      check_out
+      payment_method
+      source
+      paid
+    )
+
+    params.push :author_id if action_name.eql? 'create'
+    params
+  end
+
+  controller do
+    def create
+      params[:reservation][:author_id] = current_admin_user.id
+      super
+    end
+  end
 end

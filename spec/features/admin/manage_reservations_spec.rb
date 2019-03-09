@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 feature 'Manage reservations', js: true do
-  before { sign_in }
+  let(:admin) { create(:admin, name: 'Senhor Barriga') }
+
+  before { sign_in admin }
 
   scenario 'admin should be able to create, edit and delete reservations' do
     create(:customer, name: 'Seu Madruga')
@@ -22,13 +24,16 @@ feature 'Manage reservations', js: true do
 
     click_on 'Criar Reserva'
 
-    expect(page).to have_content 'Seu Madruga'
-    expect(page).to have_content 'Flat 101'
-    expect(page).to have_content '01 de Janeiro de 2020, 12:00'
-    expect(page).to have_content '10 de Janeiro de 2020, 12:00'
-    expect(page).to have_content 'Espécie'
-    expect(page).to have_content 'OLX'
-    expect(page).to have_content 'SIM'
+    within '#main_content' do
+      expect(page).to have_content 'Seu Madruga'
+      expect(page).to have_content 'Flat 101'
+      expect(page).to have_content '01 de Janeiro de 2020, 12:00'
+      expect(page).to have_content '10 de Janeiro de 2020, 12:00'
+      expect(page).to have_content 'Espécie'
+      expect(page).to have_content 'OLX'
+      expect(page).to have_content 'SIM'
+      expect(page).to have_content 'Senhor Barriga'
+    end
 
     click_on 'Editar Reserva'
 
@@ -42,13 +47,16 @@ feature 'Manage reservations', js: true do
 
     click_on 'Atualizar Reserva'
 
-    expect(page).to have_content 'Dona Florinda'
-    expect(page).to have_content 'Flat 201'
-    expect(page).to have_content '03 de Janeiro de 2020, 12:00'
-    expect(page).to have_content '09 de Janeiro de 2020, 12:00'
-    expect(page).to have_content 'Depósito bancário'
-    expect(page).to have_content 'AirBnb'
-    expect(page).to have_content 'NÃO'
+    within '#main_content' do
+      expect(page).to have_content 'Dona Florinda'
+      expect(page).to have_content 'Flat 201'
+      expect(page).to have_content '03 de Janeiro de 2020, 12:00'
+      expect(page).to have_content '09 de Janeiro de 2020, 12:00'
+      expect(page).to have_content 'Depósito bancário'
+      expect(page).to have_content 'AirBnb'
+      expect(page).to have_content 'NÃO'
+      expect(page).to have_content 'Senhor Barriga'
+    end
 
     click_on 'Remover Reserva'
 

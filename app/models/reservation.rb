@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :customer, required: true
   belongs_to :accommodation, required: true
+  belongs_to :author, optional: true, class_name: 'AdminUser'
 
   validates :check_in, presence: true
 
