@@ -1,4 +1,6 @@
 ActiveAdmin.register Customer do
+  menu priority: 3
+
   index do
     column do |customer|
       link_to customer.name, admin_customer_path(customer)

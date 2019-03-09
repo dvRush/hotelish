@@ -1,4 +1,6 @@
 ActiveAdmin.register Reservation do
+  menu priority: 2
+
   index do
     id_column
 
