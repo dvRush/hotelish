@@ -4,4 +4,5 @@ class Customer < ApplicationRecord
   accepts_nested_attributes_for :address
 
   validates :name, presence: true
+  validates :email, email: true, allow_blank: true
 end
