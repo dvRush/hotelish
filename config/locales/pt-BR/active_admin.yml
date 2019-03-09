@@ -83,15 +83,15 @@ pt-BR:
       author_type: "Tipo de Autor"
       body: "Conteúdo"
       author: "Autor"
-      add: "Adicionar Comentário"
-      delete: "Deletar comentário"
-      delete_confirmation: "Tem certeza que deseja excluir este comentário?"
+      add: "Adicionar Nota"
+      delete: "Deletar nota"
+      delete_confirmation: "Tem certeza que deseja excluir esta nota?"
       resource: "Objeto"
-      no_comments_yet: "Nenhum comentário."
+      no_comments_yet: "Nenhum nota."
       author_missing: "Anônimo"
-      title_content: "Comentários: %{count}"
+      title_content: "Notas: %{count}"
       errors:
-        empty_text: "O comentário não foi salvo porque o texto estava vazio."
+        empty_text: "A nota não foi salvo porque o texto estava vazio."
     devise:
       username:
         title: "Nome de Usuário"
