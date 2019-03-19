@@ -18,6 +18,7 @@ feature 'Manage reservations', js: true do
     select 'Flat 101'           , from: 'Acomodação'
     fill_in 'Check-in'          , with: '01/01/2020 12:00'
     fill_in 'Check-out'         , with: '10/01/2020 12:00'
+    fill_in 'Num. hóspedes'     , with: '1'
     fill_in 'Forma de pagamento', with: 'Espécie'
     fill_in 'Fonte de captação' , with: 'OLX'
     check 'Pago'
@@ -32,6 +33,7 @@ feature 'Manage reservations', js: true do
       expect(page).to have_content 'Espécie'
       expect(page).to have_content 'OLX'
       expect(page).to have_content 'SIM'
+      expect(page).to have_content '1'
       expect(page).to have_content 'Senhor Barriga'
     end
 
@@ -41,6 +43,7 @@ feature 'Manage reservations', js: true do
     select 'Flat 201'           , from: 'Acomodação'
     fill_in 'Check-in'          , with: '03/01/2020 12:00'
     fill_in 'Check-out'         , with: '09/01/2020 12:00'
+    fill_in 'Num. hóspedes'     , with: '2'
     fill_in 'Forma de pagamento', with: 'Depósito bancário'
     fill_in 'Fonte de captação' , with: 'AirBnb'
     uncheck 'Pago'
@@ -55,6 +58,7 @@ feature 'Manage reservations', js: true do
       expect(page).to have_content 'Depósito bancário'
       expect(page).to have_content 'AirBnb'
       expect(page).to have_content 'NÃO'
+      expect(page).to have_content '2'
       expect(page).to have_content 'Senhor Barriga'
     end
 

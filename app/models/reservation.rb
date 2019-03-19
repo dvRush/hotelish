@@ -8,6 +8,8 @@ class Reservation < ApplicationRecord
   accepts_nested_attributes_for :customer
 
   validates :check_in, presence: true
+  validates :num_guests,
+    numericality: { greater_than: 0, only_integer: true, allow_nil: true }
 
   scope :paids,     -> { where(paid: true) }
   scope :unpaids,   -> { where(paid: true) }

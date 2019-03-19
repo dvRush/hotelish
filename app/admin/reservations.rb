@@ -65,6 +65,7 @@ ActiveAdmin.register Reservation do
       f.input :accommodation
       f.input :check_in, as: :string
       f.input :check_out, as: :string
+      f.input :num_guests
       f.input :payment_method
       f.input :source
       f.input :paid
@@ -79,6 +80,7 @@ ActiveAdmin.register Reservation do
       accommodation_id
       check_in
       check_out
+      num_guests
       payment_method
       source
       paid
