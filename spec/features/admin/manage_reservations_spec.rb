@@ -93,7 +93,7 @@ feature 'Manage reservations', js: true do
     create(:reservation, accommodation: flat_103, paid: true)
 
     # Unpaids
-    create(:reservation, accommodation: flat_104, paid: true)
+    create(:reservation, accommodation: flat_104, paid: false)
 
     # Opens
     create(:reservation,

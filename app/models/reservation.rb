@@ -12,7 +12,7 @@ class Reservation < ApplicationRecord
     numericality: { greater_than: 0, only_integer: true, allow_nil: true }
 
   scope :paids,     -> { where(paid: true) }
-  scope :unpaids,   -> { where(paid: true) }
+  scope :unpaids,   -> { where(paid: false) }
   scope :opens,     -> { where('check_in >= ?', Time.current) }
 
   scope :actives, -> {
