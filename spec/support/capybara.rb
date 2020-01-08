@@ -12,6 +12,7 @@ Capybara.register_driver :chrome do |app|
         disable-popup-blocking
         disable-gpu
         window-size=1366,768
+        disable-dev-shm-usage
       ]
     }
   )
@@ -22,5 +23,7 @@ Capybara.register_driver :chrome do |app|
     desired_capabilities: capabilities
   )
 end
+
+Selenium::WebDriver::Chrome.driver_path = '/usr/bin/chromedriver'
 
 Capybara.javascript_driver = :chrome
