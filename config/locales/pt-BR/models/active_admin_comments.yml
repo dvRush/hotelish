@@ -9,6 +9,7 @@ pt-BR:
         other: Notas
     attributes:
       comment:
+        updated_at: Atualizado em
         created_at: Criado em
         resource_type: Tipo de Objeto
         author_type: Tipo de Autor
