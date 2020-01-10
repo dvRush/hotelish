@@ -165,6 +165,8 @@ GEM
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     pg (1.1.4)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -294,6 +296,7 @@ DEPENDENCIES
   factory_bot_rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  paranoia
   pg
   pry
   puma (~> 3.11)
@@ -312,4 +315,4 @@ RUBY VERSION
    ruby 2.6.1p33
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

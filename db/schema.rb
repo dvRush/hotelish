@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_024000) do
+ActiveRecord::Schema.define(version: 2020_01_10_025331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_024000) do
     t.boolean "available", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_accommodations_on_deleted_at"
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -64,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_024000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_admin_users_on_deleted_at"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
@@ -76,6 +80,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_024000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "source"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_customers_on_deleted_at"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -90,9 +96,11 @@ ActiveRecord::Schema.define(version: 2019_03_19_024000) do
     t.datetime "updated_at", null: false
     t.bigint "author_id"
     t.integer "num_guests"
+    t.datetime "deleted_at"
     t.index ["accommodation_id"], name: "index_reservations_on_accommodation_id"
     t.index ["author_id"], name: "index_reservations_on_author_id"
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
+    t.index ["deleted_at"], name: "index_reservations_on_deleted_at"
   end
 
   create_table "settings", force: :cascade do |t|

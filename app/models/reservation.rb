@@ -1,4 +1,6 @@
 class Reservation < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :customer, required: true
   belongs_to :accommodation, required: true
   belongs_to :author, optional: true, class_name: 'AdminUser'
