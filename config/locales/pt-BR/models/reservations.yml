@@ -18,6 +18,14 @@ pt-BR:
         new_customer: Adicionar novo
         updated_at: Atualizado em
         created_at: Criado em
+    errors:
+      models:
+        reservation:
+          attributes:
+            check_out:
+              cannot_be_previous_or_equal_than_check_in: não pode ser igual ou anterior ao check-out
+            accommodation:
+              not_available_for_these_dates: não disponível para estas datas
     scopes:
       reservation:
         actives: Ativas

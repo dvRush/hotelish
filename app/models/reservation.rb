@@ -13,6 +13,9 @@ class Reservation < ApplicationRecord
   validates :num_guests,
     numericality: { greater_than: 0, only_integer: true, allow_nil: true }
 
+  validate :check_out_validation_rules
+  validate :avoid_double_reservation
+
   scope :paids,     -> { where(paid: true) }
   scope :unpaids,   -> { where(paid: false) }
   scope :opens,     -> { where('check_in >= ?', Time.current) }
@@ -31,4 +34,13 @@ class Reservation < ApplicationRecord
 
     where(check_in: month_range)
   }
+
+  private
+
+  def check_out_validation_rules
+    return unless check_in? && check_out?
+    return unless check_out <= check_in
+
+    errors.add(:check_out, :cannot_be_previous_or_equal_than_check_in)
+  end
 end
