@@ -43,4 +43,12 @@ class Reservation < ApplicationRecord
 
     errors.add(:check_out, :cannot_be_previous_or_equal_than_check_in)
   end
+
+  def avoid_double_reservation
+    return unless check_in? && check_out?
+    return unless accommodation
+    return if     accommodation.available_in?(check_in: check_in, check_out: check_out)
+
+    errors.add(:accommodation, :not_available_for_these_dates)
+  end
 end
