@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_025331) do
+ActiveRecord::Schema.define(version: 2020_01_27_015728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2020_01_10_025331) do
     t.string "title", null: false
     t.text "description"
     t.string "type"
-    t.decimal "value", precision: 6, scale: 2
     t.boolean "available", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.integer "daily_value"
     t.index ["deleted_at"], name: "index_accommodations_on_deleted_at"
   end
 

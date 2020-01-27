@@ -8,28 +8,28 @@ flat_101 = Accommodation.find_or_create_by!(
   description:  "Two environments and two single beds",
   type:         "Single",
   available:    true,
-  value:        100.0)
+  daily_value:  100.0)
 
 flat_102 = Accommodation.find_or_create_by(
   title:        "Flat 102",
   description:  "One environment and two single beds",
   type:         "Single",
   available:    true,
-  value:        95.0)
+  daily_value:  95.0)
 
 flat_201 = Accommodation.find_or_create_by(
   title:        "Flat 201",
   description:  "One environment and double bed",
   type:         "Single",
   available:    true,
-  value:        110.0)
+  daily_value:  110.0)
 
 flat_202 = Accommodation.find_or_create_by(
   title:        "Flat 202",
   description:  "Two environments and two double beds",
   type:         "Single",
   available:    true,
-  value:        125.0)
+  daily_value:  125.0)
 
 jhon_doe = Customer.create_with(
   address_attributes: {

@@ -9,7 +9,7 @@ pt-BR:
         customer: Cliente
         title: Título
         description: Descrição
-        value: Valor
+        daily_value: Valor da diária
         available: Disponível
         type: Tipo
         updated_at: Atualizado em
