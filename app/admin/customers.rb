@@ -1,5 +1,7 @@
 ActiveAdmin.register Customer do
   menu priority: 3
+  
+  config.create_another = true
 
   index do
     column do |customer|
