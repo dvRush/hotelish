@@ -18,6 +18,8 @@ ActiveAdmin.register Customer do
     attributes_table do
       row :name
       row :document
+      row :birthdate
+      row :occupation
       row :phone
       row :email
       row :source
@@ -43,6 +45,8 @@ ActiveAdmin.register Customer do
     inputs do
       f.input :name
       f.input :document
+      f.input :birthdate, as: :string
+      f.input :occupation
       f.input :phone
       f.input :email
       f.input :source
@@ -85,6 +89,8 @@ ActiveAdmin.register Customer do
   permit_params :name,
     :email,
     :document,
+    :birthdate,
+    :occupation,
     :phone,
     :source,
     address_attributes: [
