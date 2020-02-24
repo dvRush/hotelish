@@ -1,4 +1,6 @@
 ActiveAdmin.register Setting do
+  menu parent: 'Configurações', label: 'Configurações gerais', priority: 100
+
   form do |f|
     inputs do
       f.input :name
