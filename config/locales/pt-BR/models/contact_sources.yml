@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      contact_source:
+        one: Fonte de captação
+        other: Fonte de captações
+    attributes:
+      contact_source:
+        name: Nome
+        updated_at: Atualizado em
+        created_at: Criado em
+        deleted_at: Removido em
