@@ -3,31 +3,37 @@ return if Rails.env.production?
 admin = AdminUser.create_with(password: 'password', password_confirmation: 'password').
   find_or_create_by!(name: 'Admin', email: 'admin@example.com')
 
+single_type = AccommodationType.find_or_create_by!(
+  name: "Single")
+
+double_type = AccommodationType.find_or_create_by!(
+  name: "Double")
+
 flat_101 = Accommodation.find_or_create_by!(
   title:        "Flat 101",
   description:  "Two environments and two single beds",
-  type:         "Single",
+  accommodation_type: single_type,
   available:    true,
   daily_value:  100.0)
 
 flat_102 = Accommodation.find_or_create_by(
   title:        "Flat 102",
   description:  "One environment and two single beds",
-  type:         "Single",
+  accommodation_type: single_type,
   available:    true,
   daily_value:  95.0)
 
 flat_201 = Accommodation.find_or_create_by(
   title:        "Flat 201",
   description:  "One environment and double bed",
-  type:         "Single",
+  accommodation_type: single_type,
   available:    true,
   daily_value:  110.0)
 
 flat_202 = Accommodation.find_or_create_by(
   title:        "Flat 202",
   description:  "Two environments and two double beds",
-  type:         "Single",
+  accommodation_type: double_type,
   available:    true,
   daily_value:  125.0)
 

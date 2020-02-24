@@ -3,6 +3,9 @@ class Accommodation < ApplicationRecord
 
   acts_as_paranoid
 
+  belongs_to :accommodation_type
+  alias_method :type, :accommodation_type
+
   has_many :reservations
 
   validates :title, presence: true

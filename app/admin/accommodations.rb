@@ -7,7 +7,7 @@ ActiveAdmin.register Accommodation do
     column do |accommodation|
       link_to accommodation.title, admin_accommodation_path(accommodation)
     end
-    column :type
+    column :accommodation_type
     column :daily_value
     column :available
 
@@ -18,12 +18,12 @@ ActiveAdmin.register Accommodation do
     f.inputs do
       f.input :title
       f.input :description
-      f.input :type
+      f.input :accommodation_type
       f.input :daily_value
       f.input :available
     end
     f.actions
   end
 
-  permit_params :title, :description, :type, :daily_value, :available
+  permit_params :title, :description, :daily_value, :available, :accommodation_type_id
 end

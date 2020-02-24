@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      accommodation_type:
+        one: Tipo de acomodação
+        other: Tipo de acomodações
+    attributes:
+      accommodation_type:
+        name: Nome
+        description: Descrição
+        updated_at: Atualizado em
+        created_at: Criado em
+        deleted_at: Removido em
