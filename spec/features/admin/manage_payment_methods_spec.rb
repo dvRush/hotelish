@@ -31,4 +31,17 @@ feature 'Manage payment methods', js: true do
 
     expect(page).to have_content 'Não existem Métodos de pagamento ainda.'
   end
+
+  scenario "admin should be able to select each entry at reservation's form" do
+    create(:payment_method, name: "Espécie")
+    create(:payment_method, name: "Transferência")
+    create(:payment_method, name: "Cartão")
+
+    click_on 'Reservas'
+    click_on 'Novo(a) Reserva'
+
+    select 'Espécie',       from: 'Método de pagamento'
+    select 'Transferência', from: 'Método de pagamento'
+    select 'Cartão',        from: 'Método de pagamento'
+  end
 end

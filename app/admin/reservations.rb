@@ -83,7 +83,7 @@ ActiveAdmin.register Reservation do
       check_in
       check_out
       num_guests
-      payment_method
+      payment_method_id
       contact_source_id
       paid
     )

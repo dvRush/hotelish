@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_005603) do
+ActiveRecord::Schema.define(version: 2020_02_25_014723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,7 +118,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_005603) do
     t.bigint "accommodation_id", null: false
     t.datetime "check_in"
     t.datetime "check_out"
-    t.string "payment_method"
     t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -126,11 +125,13 @@ ActiveRecord::Schema.define(version: 2020_02_25_005603) do
     t.integer "num_guests"
     t.datetime "deleted_at"
     t.bigint "contact_source_id"
+    t.bigint "payment_method_id"
     t.index ["accommodation_id"], name: "index_reservations_on_accommodation_id"
     t.index ["author_id"], name: "index_reservations_on_author_id"
     t.index ["contact_source_id"], name: "index_reservations_on_contact_source_id"
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
     t.index ["deleted_at"], name: "index_reservations_on_deleted_at"
+    t.index ["payment_method_id"], name: "index_reservations_on_payment_method_id"
   end
 
   create_table "settings", force: :cascade do |t|

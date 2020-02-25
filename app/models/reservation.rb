@@ -5,6 +5,7 @@ class Reservation < ApplicationRecord
   belongs_to :accommodation, required: true
   belongs_to :author, optional: true, class_name: 'AdminUser'
   belongs_to :contact_source, optional: true
+  belongs_to :payment_method, optional: true
 
   attr_accessor :new_customer
 

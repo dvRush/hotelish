@@ -11,13 +11,13 @@ feature 'Manage reservations', js: true do
     click_on 'Reservas'
     click_on 'Novo(a) Reserva'
 
-    select 'Seu Madruga',         from: 'Cliente'
-    select 'Flat 101',            from: 'Acomodação'
-    fill_in 'Check-in',           with: '01/01/2020 12:00'
-    fill_in 'Check-out',          with: '10/01/2020 12:00'
-    fill_in 'Num. hóspedes',      with: '1'
-    fill_in 'Forma de pagamento', with: 'Espécie'
-    select  'OLX',                from: 'Fonte de captação'
+    select 'Seu Madruga',     from: 'Cliente'
+    select 'Flat 101',        from: 'Acomodação'
+    fill_in 'Check-in',       with: '01/01/2020 12:00'
+    fill_in 'Check-out',      with: '10/01/2020 12:00'
+    fill_in 'Num. hóspedes',  with: '1'
+    select 'Espécie',         from: 'Método de pagamento'
+    select 'OLX',             from: 'Fonte de captação'
     check 'Pago'
 
     click_on 'Criar Reserva'
@@ -36,13 +36,13 @@ feature 'Manage reservations', js: true do
 
     click_on 'Editar Reserva'
 
-    select 'Dona Florinda',       from: 'Cliente'
-    select 'Flat 201',            from: 'Acomodação'
-    fill_in 'Check-in',           with: '03/01/2020 12:00'
-    fill_in 'Check-out',          with: '09/01/2020 12:00'
-    fill_in 'Num. hóspedes',      with: '2'
-    fill_in 'Forma de pagamento', with: 'Depósito bancário'
-    select  'AirBnb',             from: 'Fonte de captação'
+    select 'Dona Florinda',     from: 'Cliente'
+    select 'Flat 201',          from: 'Acomodação'
+    fill_in 'Check-in',         with: '03/01/2020 12:00'
+    fill_in 'Check-out',        with: '09/01/2020 12:00'
+    fill_in 'Num. hóspedes',    with: '2'
+    select 'Depósito bancário', from: 'Método de pagamento'
+    select 'AirBnb',            from: 'Fonte de captação'
     uncheck 'Pago'
 
     click_on 'Atualizar Reserva'
@@ -130,7 +130,7 @@ feature 'Manage reservations', js: true do
   scenario 'admin should be able to create a new reservation with ' \
    'a new customer in the same page' do
 
-    create(:accommodation, title: 'Flat 101')
+    create_factories
 
     click_on 'Reservas'
     click_on 'Novo(a) Reserva'
@@ -150,10 +150,10 @@ feature 'Manage reservations', js: true do
     fill_in 'Estado',       with: 'Piauí'
     fill_in 'País',         with: 'Brasil'
 
-    select 'Flat 101',              from: 'Acomodação'
-    fill_in 'Check-in',             with: '01/01/2020 12:00'
-    fill_in 'Check-out',            with: '10/01/2020 12:00'
-    fill_in 'Forma de pagamento',   with: 'Espécie'
+    select 'Flat 101',    from: 'Acomodação'
+    fill_in 'Check-in',   with: '01/01/2020 12:00'
+    fill_in 'Check-out',  with: '10/01/2020 12:00'
+    select 'Espécie',     from: 'Método de pagamento'
 
     check 'Pago'
 
@@ -182,5 +182,8 @@ feature 'Manage reservations', js: true do
 
     create(:accommodation, title: 'Flat 101')
     create(:accommodation, title: 'Flat 201')
+
+    create(:payment_method, name: "Espécie")
+    create(:payment_method, name: "Depósito bancário")
   end
 end
