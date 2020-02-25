@@ -33,13 +33,32 @@ feature 'Manage contact sources', js: true do
   end
 
   scenario "admin should be able to select each entry at reservation's form" do
-    create(:contact_source, name: "AirBnb")
-    create(:contact_source, name: "OLX")
-    create(:contact_source, name: "Google")
+    create_factories
 
     click_on 'Reservas'
     click_on 'Novo(a) Reserva'
 
+    select_all_factories_in_form
+  end
+
+  scenario "admin should be able to select each entry at customer's form" do
+    create_factories
+
+    click_on 'Cliente'
+    click_on 'Novo(a) Cliente'
+
+    select_all_factories_in_form
+  end
+
+  private
+
+  def create_factories
+    create(:contact_source, name: "AirBnb")
+    create(:contact_source, name: "OLX")
+    create(:contact_source, name: "Google")
+  end
+
+  def select_all_factories_in_form
     select 'AirBnb', from: 'Fonte de captação'
     select 'OLX',    from: 'Fonte de captação'
     select 'Google', from: 'Fonte de captação'
