@@ -69,7 +69,7 @@ ActiveAdmin.register Reservation do
       f.input :check_out, as: :string
       f.input :num_guests
       f.input :payment_method
-      f.input :source
+      f.input :contact_source
       f.input :paid
     end
 
@@ -84,7 +84,7 @@ ActiveAdmin.register Reservation do
       check_out
       num_guests
       payment_method
-      source
+      contact_source_id
       paid
     )
 

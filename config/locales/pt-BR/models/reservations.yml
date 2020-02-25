@@ -12,7 +12,7 @@ pt-BR:
         check_out: Check-out
         num_guests: Num. hóspedes
         payment_method: Forma de pagamento
-        source: Fonte de captação
+        contact_source: Fonte de captação
         paid: Pago
         author: Autor
         new_customer: Adicionar novo

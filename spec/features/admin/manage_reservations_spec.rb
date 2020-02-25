@@ -6,21 +6,18 @@ feature 'Manage reservations', js: true do
   before { sign_in admin }
 
   scenario 'admin should be able to create, edit and delete reservations' do
-    create(:customer, name: 'Seu Madruga')
-    create(:customer, name: 'Dona Florinda')
-    create(:accommodation, title: 'Flat 101')
-    create(:accommodation, title: 'Flat 201')
+    create_factories
 
     click_on 'Reservas'
     click_on 'Novo(a) Reserva'
 
-    select 'Seu Madruga'        , from: 'Cliente'
-    select 'Flat 101'           , from: 'Acomodação'
-    fill_in 'Check-in'          , with: '01/01/2020 12:00'
-    fill_in 'Check-out'         , with: '10/01/2020 12:00'
-    fill_in 'Num. hóspedes'     , with: '1'
+    select 'Seu Madruga',         from: 'Cliente'
+    select 'Flat 101',            from: 'Acomodação'
+    fill_in 'Check-in',           with: '01/01/2020 12:00'
+    fill_in 'Check-out',          with: '10/01/2020 12:00'
+    fill_in 'Num. hóspedes',      with: '1'
     fill_in 'Forma de pagamento', with: 'Espécie'
-    fill_in 'Fonte de captação' , with: 'OLX'
+    select  'OLX',                from: 'Fonte de captação'
     check 'Pago'
 
     click_on 'Criar Reserva'
@@ -39,13 +36,13 @@ feature 'Manage reservations', js: true do
 
     click_on 'Editar Reserva'
 
-    select 'Dona Florinda'      , from: 'Cliente'
-    select 'Flat 201'           , from: 'Acomodação'
-    fill_in 'Check-in'          , with: '03/01/2020 12:00'
-    fill_in 'Check-out'         , with: '09/01/2020 12:00'
-    fill_in 'Num. hóspedes'     , with: '2'
+    select 'Dona Florinda',       from: 'Cliente'
+    select 'Flat 201',            from: 'Acomodação'
+    fill_in 'Check-in',           with: '03/01/2020 12:00'
+    fill_in 'Check-out',          with: '09/01/2020 12:00'
+    fill_in 'Num. hóspedes',      with: '2'
     fill_in 'Forma de pagamento', with: 'Depósito bancário'
-    fill_in 'Fonte de captação' , with: 'AirBnb'
+    select  'AirBnb',             from: 'Fonte de captação'
     uncheck 'Pago'
 
     click_on 'Atualizar Reserva'
@@ -172,5 +169,18 @@ feature 'Manage reservations', js: true do
       expect(page).to have_content 'SIM'
       expect(page).to have_content 'Senhor Barriga'
     end
+  end
+
+  private
+
+  def create_factories
+    create(:contact_source, name: "AirBnb")
+    create(:contact_source, name: "OLX")
+
+    create(:customer, name: 'Seu Madruga')
+    create(:customer, name: 'Dona Florinda')
+
+    create(:accommodation, title: 'Flat 101')
+    create(:accommodation, title: 'Flat 201')
   end
 end
