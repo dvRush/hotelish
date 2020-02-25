@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      payment_method:
+        one: Método de pagamento
+        other: Métodos de pagamento
+    attributes:
+      payment_method:
+        name: Nome
+        updated_at: Atualizado em
+        created_at: Criado em
+        deleted_at: Removido em

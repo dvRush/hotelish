@@ -1,4 +1,6 @@
 class ContactSource < ApplicationRecord
+  acts_as_paranoid
+
   has_many :reservations
   has_many :customers
 
