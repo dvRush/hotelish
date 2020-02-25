@@ -45,7 +45,7 @@ ActiveAdmin.register Reservation do
         fc.input :document
         fc.input :phone
         fc.input :email
-        fc.input :source
+        fc.input :contact_source
 
         fc.has_many :address,
           allow_destroy: false,
@@ -94,7 +94,7 @@ ActiveAdmin.register Reservation do
         :document,
         :phone,
         :email,
-        :source,
+        :contact_source,
         address_attributes: [
           :zip_code,
           :street,

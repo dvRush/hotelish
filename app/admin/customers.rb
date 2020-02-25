@@ -22,7 +22,7 @@ ActiveAdmin.register Customer do
       row :occupation
       row :phone
       row :email
-      row :source
+      row :contact_source
     end
 
     panel "Endereço" do
@@ -49,7 +49,7 @@ ActiveAdmin.register Customer do
       f.input :occupation
       f.input :phone
       f.input :email
-      f.input :source
+      f.input :contact_source
 
       f.inputs do
         f.has_many :address,
@@ -92,7 +92,7 @@ ActiveAdmin.register Customer do
     :birthdate,
     :occupation,
     :phone,
-    :source,
+    :contact_source_id,
     address_attributes: [
       :zip_code,
       :street,

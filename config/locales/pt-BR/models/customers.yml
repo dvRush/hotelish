@@ -12,6 +12,6 @@ pt-BR:
         birthdate: Data de nascimento
         occupation: Ocupação
         phone: Telefone
-        source: Fonte de captação
+        contact_source: Fonte de captação
         updated_at: Atualizado em
         created_at: Criado em

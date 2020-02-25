@@ -4,6 +4,8 @@ feature 'Manage Customers', js: true do
   before { sign_in }
 
   scenario 'admin should be able to create, edit and delete a customer' do
+    create_factories
+
     click_on 'Clientes'
     click_on 'Novo(a) Cliente'
 
@@ -13,7 +15,7 @@ feature 'Manage Customers', js: true do
     fill_in 'Data de nascimento', with: '01/01/2001'
     fill_in 'Ocupação',     with: 'Engenheiro elétrico'
     fill_in 'Telefone',     with: '(86) 12345-1234'
-    fill_in 'Fonte de captação', with: 'AirBnb'
+    select  'AirBnb',       from: 'Fonte de captação'
     fill_in 'CEP',          with: '64123-321'
     fill_in 'Logradouro',   with: 'Rua Dois de Novembro'
     fill_in 'Número',       with: '1234'
@@ -49,7 +51,8 @@ feature 'Manage Customers', js: true do
     fill_in 'Data de nascimento', with: '02/02/2002'
     fill_in 'Ocupação',     with: 'Engenheiro de software'
     fill_in 'Telefone',     with: '(68) 54321-4321'
-    fill_in 'Fonte de captação', with: 'OLX'
+    select  'OLX',          from: 'Fonte de captação'
+    fill_in 'CEP',          with: '64123-321'
     fill_in 'CEP',          with: '64321-123'
     fill_in 'Logradouro',   with: 'Rua Três de Dezembro'
     fill_in 'Número',       with: '4321'
@@ -82,5 +85,12 @@ feature 'Manage Customers', js: true do
     page.accept_alert
 
     expect(page).to have_content 'Não existem Clientes ainda.'
+  end
+
+  private
+
+  def create_factories
+    create(:contact_source, name: "AirBnb")
+    create(:contact_source, name: "OLX")
   end
 end
