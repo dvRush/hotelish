@@ -31,4 +31,17 @@ feature 'Manage contact sources', js: true do
 
     expect(page).to have_content 'Não existem Fonte de captações ainda.'
   end
+
+  scenario "admin should be able to select each entry at reservation's form" do
+    create(:contact_source, name: "AirBnb")
+    create(:contact_source, name: "OLX")
+    create(:contact_source, name: "Google")
+
+    click_on 'Reservas'
+    click_on 'Novo(a) Reserva'
+
+    select 'AirBnb', from: 'Fonte de captação'
+    select 'OLX',    from: 'Fonte de captação'
+    select 'Google', from: 'Fonte de captação'
+  end
 end
