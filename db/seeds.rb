@@ -1,6 +1,7 @@
 return if Rails.env.production?
 
-admin = AdminUser.create_with(password: 'password', password_confirmation: 'password').
+admin = AdminUser.
+  create_with(password: 'password', password_confirmation: 'password').
   find_or_create_by!(name: 'Admin', email: 'admin@example.com')
 
 single_type = AccommodationType.find_or_create_by!(
@@ -8,6 +9,13 @@ single_type = AccommodationType.find_or_create_by!(
 
 double_type = AccommodationType.find_or_create_by!(
   name: "Double")
+
+airbnb_contact_source     = ContactSource.find_or_create_by!(name: 'AirBnb')
+olx_contact_source        = ContactSource.find_or_create_by!(name: 'OLX')
+google_contact_source     = ContactSource.find_or_create_by!(name: 'Google')
+facebook_contact_source   = ContactSource.find_or_create_by!(name: 'Facebook')
+instagram_contact_source  = ContactSource.find_or_create_by!(name: 'Instagram')
+customer_contact_source   = ContactSource.find_or_create_by!(name: 'Customer reference')
 
 flat_101 = Accommodation.find_or_create_by!(
   title:        "Flat 101",
@@ -51,7 +59,7 @@ jhon_doe = Customer.create_with(
     email:    "jhon@doe.com",
     document: "84497717062",
     phone:    "86999993333",
-    source:   "Olx")
+    contact_source: olx_contact_source)
 
 joshua_melv = Customer.create_with(
   address_attributes: {
@@ -67,7 +75,7 @@ joshua_melv = Customer.create_with(
     email:    "joshua@melv.com",
     document: "47302600074",
     phone:    "86977772222",
-    source:   "Instagram")
+    contact_source: instagram_contact_source)
 
 sr_madruga = Customer.create_with(
   address_attributes: {
@@ -83,7 +91,7 @@ sr_madruga = Customer.create_with(
     email:    "madrugao@example.com",
     document: "51759259039",
     phone:    "86933331111",
-    source:   "AirBnb")
+    contact_source: airbnb_contact_source)
 
 standford_pines = Customer.create_with(
   address_attributes: {
@@ -99,7 +107,7 @@ standford_pines = Customer.create_with(
     email:    "stan_pines@example.com",
     document: "06113183009",
     phone:    "11432519837",
-    source:   "Indicação")
+    contact_source: customer_contact_source)
 
 Reservation.find_or_create_by!(
   customer_id:      jhon_doe.id,
@@ -108,7 +116,7 @@ Reservation.find_or_create_by!(
   check_out:        3.days.from_now,
   num_guests:       1,
   payment_method:   "transferência bancária",
-  source:           "OLX",
+  contact_source:   olx_contact_source,
   paid:             true,
   author:           admin)
 
@@ -119,7 +127,7 @@ Reservation.find_or_create_by!(
   check_out:        15.days.from_now,
   num_guests:       1,
   payment_method:   "transferência bancária",
-  source:           "Instagram",
+  contact_source:   instagram_contact_source,
   paid:             true,
   author:           admin)
 
@@ -130,7 +138,7 @@ Reservation.find_or_create_by!(
   check_out:        10.days.ago,
   num_guests:       2,
   payment_method:   nil,
-  source:           "AirBnb",
+  contact_source:   airbnb_contact_source,
   paid:             false,
   author:           admin)
 
@@ -141,6 +149,6 @@ Reservation.find_or_create_by!(
   check_out:        45.days.from_now,
   num_guests:       3,
   payment_method:   nil,
-  source:           "Google Ads",
+  contact_source:   google_contact_source,
   paid:             false,
   author:           admin)
