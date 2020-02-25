@@ -17,6 +17,12 @@ facebook_contact_source   = ContactSource.find_or_create_by!(name: 'Facebook')
 instagram_contact_source  = ContactSource.find_or_create_by!(name: 'Instagram')
 customer_contact_source   = ContactSource.find_or_create_by!(name: 'Customer reference')
 
+cash_payment      = PaymentMethod.find_or_create_by!(name: 'Cash')
+credit_payment    = PaymentMethod.find_or_create_by!(name: 'Credit')
+debit_payment     = PaymentMethod.find_or_create_by!(name: 'Debit')
+transfer_payment  = PaymentMethod.find_or_create_by!(name: 'Transfer')
+deposit_payment   = PaymentMethod.find_or_create_by!(name: 'Deposit')
+
 flat_101 = Accommodation.find_or_create_by!(
   title:        "Flat 101",
   description:  "Two environments and two single beds",
@@ -115,7 +121,7 @@ Reservation.find_or_create_by!(
   check_in:         3.days.ago,
   check_out:        3.days.from_now,
   num_guests:       1,
-  payment_method:   "transferência bancária",
+  payment_method:   transfer_payment,
   contact_source:   olx_contact_source,
   paid:             true,
   author:           admin)
@@ -126,7 +132,7 @@ Reservation.find_or_create_by!(
   check_in:         4.days.from_now,
   check_out:        15.days.from_now,
   num_guests:       1,
-  payment_method:   "transferência bancária",
+  payment_method:   cash_payment,
   contact_source:   instagram_contact_source,
   paid:             true,
   author:           admin)
