@@ -3,7 +3,7 @@ class AccommodationType < ApplicationRecord
 
   has_many :accommodations
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def to_s
     name

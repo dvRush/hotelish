@@ -8,7 +8,7 @@ class Accommodation < ApplicationRecord
 
   has_many :reservations
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :daily_value, numericality: { greather_than: 0 }
 
   def reserved_in?(check_in:, check_out:)

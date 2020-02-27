@@ -4,5 +4,5 @@ class ContactSource < ApplicationRecord
   has_many :reservations
   has_many :customers
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 end
