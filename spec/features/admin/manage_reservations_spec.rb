@@ -16,7 +16,7 @@ feature 'Manage reservations', js: true do
     fill_in 'Check-in',       with: '01/01/2020 12:00'
     fill_in 'Check-out',      with: '10/01/2020 12:00'
     fill_in 'Num. hóspedes',  with: '1'
-    select 'Espécie',         from: 'Método de pagamento'
+    select 'Espécie',         from: 'Forma de pagamento'
     select 'OLX',             from: 'Fonte de captação'
     check 'Pago'
 
@@ -41,7 +41,7 @@ feature 'Manage reservations', js: true do
     fill_in 'Check-in',         with: '03/01/2020 12:00'
     fill_in 'Check-out',        with: '09/01/2020 12:00'
     fill_in 'Num. hóspedes',    with: '2'
-    select 'Depósito bancário', from: 'Método de pagamento'
+    select 'Depósito bancário', from: 'Forma de pagamento'
     select 'AirBnb',            from: 'Fonte de captação'
     uncheck 'Pago'
 
@@ -153,7 +153,7 @@ feature 'Manage reservations', js: true do
     select 'Flat 101',    from: 'Acomodação'
     fill_in 'Check-in',   with: '01/01/2020 12:00'
     fill_in 'Check-out',  with: '10/01/2020 12:00'
-    select 'Espécie',     from: 'Método de pagamento'
+    select 'Espécie',     from: 'Forma de pagamento'
 
     check 'Pago'
 
