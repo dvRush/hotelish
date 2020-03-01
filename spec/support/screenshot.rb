@@ -1,5 +1,5 @@
 RSpec.configure do |config|
-  errors_path = Rails.root.join('tmp', 'errors')
+  errors_path = Rails.root.join("tmp", "errors")
 
   config.before(:suite) do
     FileUtils.remove_dir errors_path, true

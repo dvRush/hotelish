@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
 
   belongs_to :customer, required: true
   belongs_to :accommodation, required: true
-  belongs_to :author, optional: true, class_name: 'AdminUser'
+  belongs_to :author, optional: true, class_name: "AdminUser"
   belongs_to :contact_source, optional: true
   belongs_to :payment_method, optional: true
 
@@ -20,14 +20,14 @@ class Reservation < ApplicationRecord
 
   scope :paids,     -> { where(paid: true) }
   scope :unpaids,   -> { where(paid: false) }
-  scope :opens,     -> { where('check_in >= ?', Time.current) }
+  scope :opens,     -> { where("check_in >= ?", Time.current) }
 
   scope :actives, -> {
-    where('check_in <= :t AND check_out >= :t', t: Time.current)
+    where("check_in <= :t AND check_out >= :t", t: Time.current)
   }
 
   scope :previous,  -> {
-    where('check_in < :t AND check_out < :t', t: Time.current)
+    where("check_in < :t AND check_out < :t", t: Time.current)
   }
 
   scope :for_current_month, -> {

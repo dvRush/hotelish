@@ -1,5 +1,5 @@
-require 'selenium-webdriver'
-require 'chromedriver/helper'
+require "selenium-webdriver"
+require "chromedriver/helper"
 
 Capybara.server = :puma, { Silent: true }
 
@@ -24,6 +24,6 @@ Capybara.register_driver :chrome do |app|
   )
 end
 
-Selenium::WebDriver::Chrome.driver_path = '/usr/bin/chromedriver'
+Selenium::WebDriver::Chrome.driver_path = "/usr/bin/chromedriver"
 
 Capybara.javascript_driver = :chrome
