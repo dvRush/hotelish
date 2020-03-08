@@ -19,7 +19,9 @@ ActiveAdmin.register Accommodation do
       f.input :title
       f.input :description
       f.input :accommodation_type
-      f.input :daily_value
+      f.input :daily_value, as: :string, input_html: {
+        data: { mask_money: true }, maxlength: 8
+      }
       f.input :available
     end
     f.actions

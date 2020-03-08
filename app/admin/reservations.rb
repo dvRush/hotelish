@@ -42,8 +42,12 @@ ActiveAdmin.register Reservation do
         new_record: false, class: 'new_customer_form without_remove_button' do |fc|
 
         fc.input :name
-        fc.input :document
-        fc.input :phone
+        fc.input :document, input_html: {
+          data: { mask_document: true }
+        }
+        fc.input :phone, input_html: {
+          data: { mask_phone: true }
+        }
         fc.input :email
         fc.input :contact_source
 
@@ -51,7 +55,9 @@ ActiveAdmin.register Reservation do
           allow_destroy: false,
           new_record: false do |fa|
 
-          fa.input :zip_code
+          fa.input :zip_code, input_html: {
+            data: { mask_zipcode: true }
+          }
           fa.input :street
           fa.input :number
           fa.input :neighborhood
@@ -65,8 +71,12 @@ ActiveAdmin.register Reservation do
 
     inputs 'Informações da reserva' do
       f.input :accommodation
-      f.input :check_in, as: :string
-      f.input :check_out, as: :string
+      f.input :check_in, as: :string, input_html: {
+        data: { mask_datetime: true }
+      }
+      f.input :check_out, as: :string, input_html: {
+        data: { mask_datetime: true }
+      }
       f.input :num_guests
       f.input :payment_method
       f.input :contact_source

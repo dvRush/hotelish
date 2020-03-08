@@ -7,8 +7,8 @@ ActiveAdmin.register Customer do
     column do |customer|
       link_to customer.name, admin_customer_path(customer)
     end
-    column :phone
-    column :document
+    column(:phone) {|c| to_phone(c.phone) }
+    column(:document) {|c| to_document(c.document) }
     column :email
 
     actions
@@ -17,17 +17,17 @@ ActiveAdmin.register Customer do
   show do |customer|
     attributes_table do
       row :name
-      row :document
+      row(:document) {|c| to_document(c.document) }
       row :birthdate
       row :occupation
-      row :phone
+      row(:phone) {|c| to_phone(c.phone) }
       row :email
       row :contact_source
     end
 
     panel "Endereço" do
       attributes_table_for customer.address do
-        row :zip_code
+        row(:zip_code) {|c| to_zip_code(c.zip_code) }
         row :street
         row :number
         row :neighborhood
@@ -44,10 +44,14 @@ ActiveAdmin.register Customer do
   form do |f|
     inputs do
       f.input :name
-      f.input :document
-      f.input :birthdate, as: :string
+      f.input :document, input_html: {
+        data: { mask_document: true }
+      }
+      f.input :birthdate, as: :string, input_html: {
+        data: { mask_date: true }
+      }
       f.input :occupation
-      f.input :phone
+      f.input :phone, input_html: { data: { mask_phone: true } }
       f.input :email
       f.input :contact_source
 
@@ -57,7 +61,7 @@ ActiveAdmin.register Customer do
           allow_destroy: false,
           new_record: false do |fa|
 
-          fa.input :zip_code
+          fa.input :zip_code, input_html: { data: { mask_zipcode: true } }
           fa.input :street
           fa.input :number
           fa.input :neighborhood

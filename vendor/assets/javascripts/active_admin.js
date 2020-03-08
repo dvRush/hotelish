@@ -1,6 +1,7 @@
 //= require active_admin/base
 //= require datepicker-pt-BR.js
 //= require activeadmin/dynamic_fields
+//= require ./masks
 
 $(document).ready(function(){
   var elements = document.querySelectorAll('.without_remove_button');
