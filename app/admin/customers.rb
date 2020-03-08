@@ -3,12 +3,14 @@ ActiveAdmin.register Customer do
   
   config.create_another = true
 
+  decorate_with CustomerDecorator
+
   index do
     column do |customer|
       link_to customer.name, admin_customer_path(customer)
     end
-    column(:phone) {|c| to_phone(c.phone) }
-    column(:document) {|c| to_document(c.document) }
+    column :phone
+    column :document
     column :email
 
     actions
@@ -17,17 +19,17 @@ ActiveAdmin.register Customer do
   show do |customer|
     attributes_table do
       row :name
-      row(:document) {|c| to_document(c.document) }
+      row :document
       row :birthdate
       row :occupation
-      row(:phone) {|c| to_phone(c.phone) }
+      row :phone
       row :email
       row :contact_source
     end
 
     panel "Endereço" do
-      attributes_table_for customer.address do
-        row(:zip_code) {|c| to_zip_code(c.zip_code) }
+      attributes_table_for customer.address.decorate do
+        row :zip_code
         row :street
         row :number
         row :neighborhood

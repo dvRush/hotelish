@@ -24,4 +24,10 @@ module ApplicationHelper
   def to_zip_code(number)
     String(number).gsub(/^(\d{5})(\d{3})$/, '\1-\2')
   end
+
+  using MoneyRefinement
+
+  def to_money(number)
+    number.to_money
+  end
 end

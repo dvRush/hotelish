@@ -3,6 +3,8 @@ ActiveAdmin.register Accommodation do
 
   config.create_another = true
 
+  decorate_with AccommodationDecorator
+
   index do
     column do |accommodation|
       link_to accommodation.title, admin_accommodation_path(accommodation)

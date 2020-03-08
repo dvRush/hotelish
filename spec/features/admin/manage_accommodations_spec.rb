@@ -20,7 +20,7 @@ feature "Manage accommodations", js: true do
     expect(page).to have_content "Flat 101"
     expect(page).to have_content "Description about flat 101"
     expect(page).to have_content "Solteiro"
-    expect(page).to have_content "10000"
+    expect(page).to have_content "R$ 100,00"
     expect(page).to have_content "SIM"
 
     click_on "Editar Acomodação"
@@ -36,7 +36,7 @@ feature "Manage accommodations", js: true do
     expect(page).to have_content "Flat 201"
     expect(page).to have_content "Description about flat 201"
     expect(page).to have_content "Casal"
-    expect(page).to have_content "11000"
+    expect(page).to have_content "R$ 110,00"
     expect(page).to have_content "NÃO"
 
     click_on "Remover Acomodação"

@@ -8,6 +8,7 @@ gem 'pg'
 gem 'puma', '~> 3.11'
 
 gem 'devise'
+gem 'draper'
 gem 'activeadmin'
 gem 'activeadmin_dynamic_fields'
 gem 'paranoia'
