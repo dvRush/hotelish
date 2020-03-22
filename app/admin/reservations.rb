@@ -12,6 +12,8 @@ ActiveAdmin.register Reservation do
     scope i18n.t('unpaids'),            :unpaids
   end
 
+  scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
+
   index do
     id_column
 
@@ -21,7 +23,39 @@ ActiveAdmin.register Reservation do
     column :check_out
     column :paid
 
-    actions
+    actions(defaults: false) do |resource|
+      localizer = ActiveAdmin::Localizers.resource(active_admin_config)
+
+      if resource.deleted?
+        item(
+          localizer.t(:restore),
+          restore_admin_reservation_path(resource),
+          class: "restore_link member_link",
+          title: localizer.t(:restore),
+          method: :put,
+          data: { confirm: localizer.t(:restore_confirmation) })
+      else
+        item(
+          localizer.t(:view),
+          resource_path(resource),
+          class: "view_link member_link",
+          title: localizer.t(:view))
+
+        item(
+          localizer.t(:edit),
+          edit_resource_path(resource),
+          class: "edit_link member_link",
+          title: localizer.t(:edit))
+
+        item(
+          localizer.t(:delete),
+          resource_path(resource),
+          class: "delete_link member_link",
+          title: localizer.t(:delete),
+          method: :delete,
+          data: { confirm: localizer.t(:delete_confirmation) })
+      end
+    end
   end
 
   form do |f|
@@ -143,5 +177,12 @@ ActiveAdmin.register Reservation do
       @reservation.customer ||= Customer.new
       @reservation.customer.address ||= Address.new
     end
+  end
+
+  member_action :restore, method: :put do
+    resource = Reservation.with_deleted.find(params[:id])
+    resource.restore
+
+    redirect_to resource_path(resource)
   end
 end

@@ -1,0 +1,4 @@
+pt-BR:
+  activerecord:
+    scopes:
+      only_deleted: Excluídos

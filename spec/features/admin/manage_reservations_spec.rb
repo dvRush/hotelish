@@ -171,6 +171,45 @@ feature "Manage reservations", js: true do
     end
   end
 
+  scenario "admin should see a deleted reservation and restore it" do
+    flat        = create(:accommodation, title: "Flat 101")
+    jhon        = create(:customer, name: "Jhon Doe")
+    reservation = create(:reservation, accommodation: flat, customer: jhon)
+
+    click_on "Reservas"
+
+    within("#main_content_wrapper") do
+      expect(page).to have_content("Flat 101")
+      expect(page).to have_content("Jhon Doe")
+    end
+
+    click_on "Remover"
+
+    page.accept_alert
+
+    within("#main_content_wrapper") do
+      expect(page).to_not have_content("Flat 101")
+      expect(page).to_not have_content("Jhon Doe")
+    end
+
+    click_on "Excluídos"
+
+    within("#main_content_wrapper") do
+      expect(page).to have_content("Flat 101")
+      expect(page).to have_content("Jhon Doe")
+    end
+
+    click_on "Restaurar"
+
+    page.accept_alert
+
+    within("#main_content_wrapper") do
+      expect(page).to have_content("Detalhes do(a) Reserva")
+      expect(page).to have_content("Flat 101")
+      expect(page).to have_content("Jhon Doe")
+    end
+  end
+
   private
 
   def create_factories
