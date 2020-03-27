@@ -186,7 +186,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.3)
-    puma (3.12.4)
+    puma (4.3.3)
+      nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -326,7 +327,7 @@ DEPENDENCIES
   paranoia
   pg
   pry
-  puma (~> 3.11)
+  puma (~> 4.3.3)
   rails (~> 6.0.2)
   rspec-rails
   sass-rails (~> 5.0)
