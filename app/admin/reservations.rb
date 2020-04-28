@@ -3,6 +3,8 @@ ActiveAdmin.register Reservation do
 
   config.create_another = true
 
+  includes :accommodation, :customer
+
   I18n.with_options(scope: 'activerecord.scopes.reservation') do |i18n|
     scope i18n.t('actives'),            :actives
     scope i18n.t('for_current_month'),  :for_current_month
