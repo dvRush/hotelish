@@ -6,7 +6,7 @@ ActiveAdmin.register Accommodation do
   decorate_with AccommodationDecorator
 
   index do
-    column do |accommodation|
+    column(Accommodation.model_name.human)do |accommodation|
       link_to accommodation.title, admin_accommodation_path(accommodation)
     end
     column :accommodation_type
