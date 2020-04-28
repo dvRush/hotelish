@@ -1,11 +1,11 @@
 class Reservation < ApplicationRecord
   acts_as_paranoid
 
-  belongs_to :customer, required: true
-  belongs_to :accommodation, required: true
+  belongs_to :customer, required: true, counter_cache: true
+  belongs_to :accommodation, required: true, counter_cache: true
   belongs_to :author, optional: true, class_name: "AdminUser"
-  belongs_to :contact_source, optional: true
-  belongs_to :payment_method, optional: true
+  belongs_to :contact_source, optional: true, counter_cache: true
+  belongs_to :payment_method, optional: true, counter_cache: true
 
   attr_accessor :new_customer
 

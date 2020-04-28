@@ -3,7 +3,7 @@ class Accommodation < ApplicationRecord
 
   acts_as_paranoid
 
-  belongs_to :accommodation_type
+  belongs_to :accommodation_type, counter_cache: true
   alias_method :type, :accommodation_type
 
   has_many :reservations
