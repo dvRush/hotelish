@@ -14,8 +14,7 @@ $(document).ready(function(){
   });
 
   $.each($('.datepicker'), function(i, el) {
-    var $el = $(el);
-    $el.datepicker({ dateFormat: "dd/mm/yy" });
+    $(el).datepicker({ dateFormat: "dd/mm/yy" });
   });
 
   $.each($('[data-use-select2]'), function(i, el) {
