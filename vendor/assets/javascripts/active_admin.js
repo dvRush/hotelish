@@ -1,6 +1,8 @@
 //= require active_admin/base
 //= require datepicker-pt-BR.js
 //= require activeadmin/dynamic_fields
+//= require select2.min
+//= require select2_pt-BR.min
 //= require ./masks
 
 $(document).ready(function(){
@@ -14,5 +16,9 @@ $(document).ready(function(){
   $.each($('.datepicker'), function(i, el) {
     var $el = $(el);
     $el.datepicker({ dateFormat: "dd/mm/yy" });
+  });
+
+  $.each($('[data-use-select2]'), function(i, el) {
+    $(el).select2()
   });
 });

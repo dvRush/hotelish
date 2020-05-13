@@ -62,7 +62,8 @@ ActiveAdmin.register Reservation do
 
   form do |f|
     inputs 'Cliente' do
-      f.input :customer
+      f.input :customer, collection: Customer.all,
+        input_html: { data: { use_select2: true }}
       f.input :new_customer, as: :boolean,
         input_html: {
           data: {
