@@ -109,9 +109,11 @@ ActiveAdmin.register Reservation do
     inputs 'Informações da reserva' do
       f.input :accommodation
       f.input :check_in, as: :string, input_html: {
+        value: f.object.check_in&.strftime("%d/%m/%Y %H:%M:%S"),
         data: { mask_datetime: true }
       }
       f.input :check_out, as: :string, input_html: {
+        value: f.object.check_out&.strftime("%d/%m/%Y %H:%M:%S"),
         data: { mask_datetime: true }
       }
       f.input :num_guests

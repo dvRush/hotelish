@@ -50,6 +50,7 @@ ActiveAdmin.register Customer do
         data: { mask_document: true }
       }
       f.input :birthdate, as: :string, input_html: {
+        value: f.object.birthdate&.strftime("%d/%m/%Y"),
         data: { mask_date: true }
       }
       f.input :occupation
