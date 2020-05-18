@@ -11,20 +11,14 @@ class Accommodation < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :daily_value, numericality: { greather_than: 0 }
 
-  def reserved_in?(check_in:, check_out:)
-    reservations.
-      paids.
-      where(Arel.sql(<<-SQL
-        (check_in = :check_in AND check_out = :check_in) OR
-        (check_in BETWEEN :check_in AND :check_out) OR
-        (check_out BETWEEN :check_in AND :check_out) OR
-        (check_in <= :check_in AND check_out >= :check_out)
-      SQL
-      ), check_in: check_in, check_out: check_out).
-      any?
+  def reserved_in?(check_in:, check_out:, only_paids: false, exclude: [])
+    result = reservations
+    result = result.where.not(id: Array(exclude)) if exclude.present?
+
+    result.reserved_in(check_in, check_out, only_paids).any?
   end
 
-  def available_in?(check_in:, check_out:)
-    not reserved_in?(check_in: check_in, check_out: check_out)
+  def available_in?(**args)
+    not reserved_in?(**args)
   end
 end
