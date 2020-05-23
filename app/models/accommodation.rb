@@ -11,14 +11,14 @@ class Accommodation < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :daily_value, numericality: { greather_than: 0 }
 
-  def reserved_in?(check_in:, check_out:, only_paids: false, exclude: [])
+  def reserved_from?(check_in:, check_out:, only_paids: false, exclude: [])
     result = reservations
     result = result.where.not(id: Array(exclude)) if exclude.present?
 
-    result.reserved_in(check_in, check_out, only_paids).any?
+    result.reserved_from(check_in, check_out, only_paids).any?
   end
 
-  def available_in?(**args)
-    not reserved_in?(**args)
+  def available_from?(**args)
+    not reserved_from?(**args)
   end
 end

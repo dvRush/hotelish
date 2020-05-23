@@ -37,7 +37,7 @@ class Reservation < ApplicationRecord
     where(check_in: month_range)
   }
 
-  scope :reserved_in, ->(check_in, check_out, only_paids=false) do
+  scope :reserved_from, ->(check_in, check_out, only_paids=false) do
     result = all
     result = result.paids if only_paids
     result = result.
@@ -64,7 +64,7 @@ class Reservation < ApplicationRecord
     return unless accommodation
 
     return if accommodation.
-      available_in?(
+      available_from?(
         check_in: check_in,
         check_out: check_out,
         only_paids: false,
