@@ -1,0 +1,27 @@
+flat_101:
+  title: Flat 101
+  description: Two environments and two single beds
+  accommodation_type: single_type
+  available:  true
+  daily_value: 100_00
+
+flat_102:
+  title: Flat 102
+  description: One environment and two single beds
+  accommodation_type: single_type
+  available: true
+  daily_value: 95_00
+
+flat_201:
+  title: Flat 201
+  description: One environment and double bed
+  accommodation_type: single_type
+  available: true
+  daily_value: 110_00
+
+flat_202:
+  title: Flat 202
+  description: Two environments and two double beds
+  accommodation_type: double_type
+  available: true
+  daily_value: 125_00

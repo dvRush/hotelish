@@ -1,0 +1,7 @@
+# passowrd == "password"
+<% password = "$2a$12$7KJu35sgIJ6jXwmoDHbHYu9y39buPtl6mOrsEG32g/IiVgvIWpN6m" %>
+
+admin_user:
+  name: Admin
+  email: admin@example.com
+  encrypted_password: <%= password %>

@@ -1,0 +1,14 @@
+cash_payment:
+  name: Cash
+
+credit_payment:
+  name: Credit
+
+debit_payment:
+  name: Debit
+
+transfer_payment:
+  name: Transfer
+
+deposit_payment:
+  name: Deposit

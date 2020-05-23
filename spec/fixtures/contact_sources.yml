@@ -1,0 +1,17 @@
+airbnb_contact_source:
+  name: AirBnb
+
+olx_contact_source:
+  name: OLX
+
+google_contact_source:
+  name: Google
+
+facebook_contact_source:
+  name: Facebook
+
+instagram_contact_source:
+  name: Instagram
+
+customer_contact_source:
+  name: Customer reference

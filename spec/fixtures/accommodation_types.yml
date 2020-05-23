@@ -1,0 +1,7 @@
+single_type:
+  name: Single
+  description: An environment for 1 person
+
+double_type:
+  name: Double
+  description: An environment for 2 up to 4 people

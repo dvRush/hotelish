@@ -1,0 +1,41 @@
+jhon_doe_reservation:
+  customer: jhon_doe
+  accommodation: flat_101
+  check_in: <%= 3.days.ago %>
+  check_out: <%= 3.days.from_now %>
+  num_guests: 1
+  payment_method: transfer_payment
+  contact_source: olx_contact_source
+  paid: true
+  author: admin_user
+
+josh_melt_reservation:
+  customer: josh_melt
+  accommodation: flat_102
+  check_in: <%= 4.days.from_now %>
+  check_out: <%= 15.days.from_now %>
+  num_guests: 1
+  payment_method: cash_payment
+  contact_source: instagram_contact_source
+  paid: true
+  author: admin_user
+
+sr_madruga_reservation:
+  customer: sr_madruga
+  accommodation: flat_201
+  check_in: <%= 20.days.ago %>
+  check_out: <%= 10.days.ago %>
+  num_guests: 2
+  contact_source: airbnb_contact_source
+  paid: false
+  author: admin_user
+
+stanford_pines_reservation:
+  customer: standford_pines
+  accommodation: flat_202
+  check_in: <%= 30.days.from_now %>
+  check_out: <%= 45.days.from_now %>
+  num_guests: 3
+  contact_source: google_contact_source
+  paid: false
+  author: admin_user

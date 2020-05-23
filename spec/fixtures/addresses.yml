@@ -1,0 +1,32 @@
+jhon_doe_address:
+  zip_code: 60336-051
+  street: Travessa Tenente José Barreira
+  neighborhood: Álvaro Weyne
+  city: Fortaleza
+  state: CE
+  country: Brasil
+  addressable: jhon_doe (User)
+
+josh_melt_address:
+  zip_code: 68901-019
+  street: Avenida Antonio Gonçalves Tocantins
+  neighborhood: Trem
+  city: Macapá
+  state: AP
+  country: Brasil
+
+sr_madruga_address:
+  zip_code: 41300-120
+  street: Rua George Bonnete
+  neighborhood: Valéria
+  city: Salvador
+  state: BA
+  country: Brasil
+
+stanford_pines_address:
+  zip_code: 68901-019
+  street: Avenida Antonio Gonçalves Tocantins
+  neighborhood: Trem
+  city: Macapá
+  state: AP
+  country: Brasil

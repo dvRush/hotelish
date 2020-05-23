@@ -1,0 +1,27 @@
+jhon_doe:
+  name: Jhon Doe
+  email: jhon@doe.com
+  document: 84497717062
+  phone: 86999993333
+  contact_source: olx_contact_source
+
+josh_melt:
+  name: Joshua Melt
+  email: josh@melt.com
+  document: 47302600074
+  phone: 86977772222
+  contact_source: instagram_contact_source
+
+sr_madruga:
+  name: Senhor Madruga
+  email: madrugao@example.com
+  document: 51759259039
+  phone: 86933331111
+  contact_source: airbnb_contact_source
+
+standford_pines:
+  name: Stanford Pines
+  email: stan_pines@example.com
+  document: 06113183009
+  phone: 11432519837
+  contact_source: customer_contact_source
