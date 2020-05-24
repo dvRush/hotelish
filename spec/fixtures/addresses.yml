@@ -5,7 +5,7 @@ jhon_doe_address:
   city: Fortaleza
   state: CE
   country: Brasil
-  addressable: jhon_doe (User)
+  addressable: jhon_doe (Customer)
 
 josh_melt_address:
   zip_code: 68901-019
@@ -14,6 +14,7 @@ josh_melt_address:
   city: Macapá
   state: AP
   country: Brasil
+  addressable: josh_melt (Customer)
 
 sr_madruga_address:
   zip_code: 41300-120
@@ -22,6 +23,7 @@ sr_madruga_address:
   city: Salvador
   state: BA
   country: Brasil
+  addressable: sr_madruga (Customer)
 
 stanford_pines_address:
   zip_code: 68901-019
@@ -30,3 +32,4 @@ stanford_pines_address:
   city: Macapá
   state: AP
   country: Brasil
+  addressable: stanford_pines (Customer)
