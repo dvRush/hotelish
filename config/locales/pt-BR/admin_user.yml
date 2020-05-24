@@ -6,6 +6,7 @@ pt-BR:
         other: Usuários
     attributes:
       admin_user:
+        name: Nome
         email: E-mail
         password: Senha
         password_confirmation: Confirmação de senha
