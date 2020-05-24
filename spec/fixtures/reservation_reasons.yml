@@ -1,0 +1,14 @@
+reason_work:
+  name: Work
+
+reason_study:
+  name: Study
+
+reason_health:
+  name: Saúde
+
+reason_exam:
+  name: Exam
+
+reason_other:
+  name: Other

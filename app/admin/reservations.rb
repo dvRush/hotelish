@@ -119,6 +119,7 @@ ActiveAdmin.register Reservation do
         data: { mask_datetime: true }
       }
       f.input :num_guests
+      f.input :reason
       f.input :payment_method
       f.input :contact_source
       f.input :paid
@@ -134,6 +135,7 @@ ActiveAdmin.register Reservation do
       check_in
       check_out
       num_guests
+      reason_id
       payment_method_id
       contact_source_id
       paid

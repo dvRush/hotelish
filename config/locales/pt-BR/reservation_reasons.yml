@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      reservation_reason:
+        one: Motivo da reserva
+        other: Motivos da reserva
+    attributes:
+      reservation_reason:
+        name: Nome
+        updated_at: Atualizado em
+        created_at: Criado em
+        deleted_at: Removido em

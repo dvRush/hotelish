@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_143459) do
+ActiveRecord::Schema.define(version: 2020_05_24_151648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,14 @@ ActiveRecord::Schema.define(version: 2020_05_24_143459) do
     t.index ["name"], name: "index_payment_methods_on_name"
   end
 
+  create_table "reservation_reasons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "deleted_at"
+    t.integer "reservations_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "accommodation_id", null: false
@@ -134,12 +142,15 @@ ActiveRecord::Schema.define(version: 2020_05_24_143459) do
     t.datetime "deleted_at"
     t.bigint "contact_source_id"
     t.bigint "payment_method_id"
+    t.string "reason"
+    t.bigint "reason_id"
     t.index ["accommodation_id"], name: "index_reservations_on_accommodation_id"
     t.index ["author_id"], name: "index_reservations_on_author_id"
     t.index ["contact_source_id"], name: "index_reservations_on_contact_source_id"
     t.index ["customer_id"], name: "index_reservations_on_customer_id"
     t.index ["deleted_at"], name: "index_reservations_on_deleted_at"
     t.index ["payment_method_id"], name: "index_reservations_on_payment_method_id"
+    t.index ["reason_id"], name: "index_reservations_on_reason_id"
   end
 
   create_table "settings", force: :cascade do |t|

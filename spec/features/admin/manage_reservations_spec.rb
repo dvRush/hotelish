@@ -16,6 +16,7 @@ feature "Manage reservations", js: true do
     fill_in "Check-in",       with: "01/01/2020 12:00"
     fill_in "Check-out",      with: "10/01/2020 12:00"
     fill_in "Num. hóspedes",  with: "1"
+    select "Trabalho",        from: "Motivo da reserva"
     select "Espécie",         from: "Forma de pagamento"
     select "OLX",             from: "Fonte de captação"
     check "Pago"
@@ -27,11 +28,11 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "Flat 101"
       expect(page).to have_content "01 de Janeiro de 2020, 12:00"
       expect(page).to have_content "10 de Janeiro de 2020, 12:00"
+      expect(page).to have_content "1"
+      expect(page).to have_content "Trabalho"
       expect(page).to have_content "Espécie"
       expect(page).to have_content "OLX"
       expect(page).to have_content "SIM"
-      expect(page).to have_content "1"
-      expect(page).to have_content "Senhor Barriga"
     end
 
     click_on "Editar Reserva"
@@ -241,5 +242,7 @@ feature "Manage reservations", js: true do
 
     create(:payment_method, name: "Espécie")
     create(:payment_method, name: "Depósito bancário")
+
+    create(:reservation_reason, name: "Trabalho")
   end
 end
