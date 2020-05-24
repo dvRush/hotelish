@@ -5,10 +5,6 @@ ActiveAdmin.register Customer do
 
   decorate_with CustomerDecorator
 
-  filter :id, as: :select, collection: Customer.all,
-    label: "Busca rápida",
-    input_html: { data: { use_select2: true }}
-
   filter :name
   filter :email
   filter :document
