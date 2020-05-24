@@ -7,6 +7,7 @@ class Reservation < ApplicationRecord
   belongs_to :contact_source, optional: true, counter_cache: true
   belongs_to :payment_method, optional: true, counter_cache: true
   belongs_to :reason, optional: true, class_name: "ReservationReason", counter_cache: true
+  belongs_to :arrivings_transport, optional: true, counter_cache: true
 
   attr_accessor :new_customer
 

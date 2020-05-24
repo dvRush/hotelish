@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      arrivings_transport:
+        one: Transporte de chegada
+        other: Transporte de chegada
+    attributes:
+      arrivings_transport:
+        name: Nome
+        updated_at: Atualizado em
+        created_at: Criado em
+        deleted_at: Removido em

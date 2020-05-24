@@ -12,6 +12,7 @@ pt-BR:
         check_out: Check-out
         num_guests: Num. hóspedes
         reason: Motivo da reserva
+        arrivings_transport: Transporte de chegada
         payment_method: Forma de pagamento
         contact_source: Fonte de captação
         paid: Pago

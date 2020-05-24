@@ -120,6 +120,7 @@ ActiveAdmin.register Reservation do
       }
       f.input :num_guests
       f.input :reason
+      f.input :arrivings_transport
       f.input :payment_method
       f.input :contact_source
       f.input :paid
@@ -136,6 +137,7 @@ ActiveAdmin.register Reservation do
       check_out
       num_guests
       reason_id
+      arrivings_transport_id
       payment_method_id
       contact_source_id
       paid

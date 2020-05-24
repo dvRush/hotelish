@@ -17,6 +17,7 @@ feature "Manage reservations", js: true do
     fill_in "Check-out",      with: "10/01/2020 12:00"
     fill_in "Num. hóspedes",  with: "1"
     select "Trabalho",        from: "Motivo da reserva"
+    select "Avião",           from: "Transporte de chegada"
     select "Espécie",         from: "Forma de pagamento"
     select "OLX",             from: "Fonte de captação"
     check "Pago"
@@ -30,6 +31,7 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "10 de Janeiro de 2020, 12:00"
       expect(page).to have_content "1"
       expect(page).to have_content "Trabalho"
+      expect(page).to have_content "Avião"
       expect(page).to have_content "Espécie"
       expect(page).to have_content "OLX"
       expect(page).to have_content "SIM"
@@ -244,5 +246,7 @@ feature "Manage reservations", js: true do
     create(:payment_method, name: "Depósito bancário")
 
     create(:reservation_reason, name: "Trabalho")
+
+    create(:arrivings_transport, name: "Avião")
   end
 end

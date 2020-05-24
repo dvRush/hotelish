@@ -1,0 +1,11 @@
+arrivings_airplane:
+  name: Airplane
+
+arrivings_car:
+  name: Car
+
+arrivings_bus:
+  name: Bus
+
+arrivings_other:
+  name: Other
