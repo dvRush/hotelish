@@ -74,8 +74,8 @@ ActiveAdmin.register Reservation do
 
   form do |f|
     inputs 'Cliente' do
-      f.input :customer, collection: Customer.all,
-        input_html: { data: { use_select2: true }}
+      f.input :customer, collection: Customer.all, input_html: { data: { use_select2: true }}
+
       f.input :new_customer, as: :boolean,
         input_html: {
           data: {
@@ -91,19 +91,21 @@ ActiveAdmin.register Reservation do
         new_record: false, class: 'new_customer_form without_remove_button' do |fc|
 
         fc.input :name
-        fc.input :document, input_html: {
-          data: { mask_document: true }
-        }
+        fc.input :document, input_html: { data: { mask_document: true } }
         fc.input :rg
         fc.input :rg_emitter
-        fc.input :phone, input_html: {
-          data: { mask_phone: true }
+        fc.input :birthdate, as: :string, input_html: {
+          value: fc.object.birthdate&.strftime("%d/%m/%Y"),
+          data: { mask_date: true }
         }
+        fc.input :occupation
+        fc.input :phone, input_html: { data: { mask_phone: true } }
         fc.input :email
         fc.input :genre, collection: Customer.genre_as_options
         fc.input :contact_source
 
         fc.has_many :address,
+          heading: Address.model_name.human,
           allow_destroy: false,
           new_record: false do |fa|
 
@@ -162,9 +164,12 @@ ActiveAdmin.register Reservation do
         :document,
         :rg,
         :rg_emitter,
+        :occupation,
         :phone,
         :email,
-        :contact_source,
+        :birthdate,
+        :genre,
+        :contact_source_id,
         address_attributes: [
           :zip_code,
           :street,
