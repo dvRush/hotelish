@@ -16,8 +16,8 @@ pt-BR:
         occupation: Ocupação
         phone: Telefone
         contact_source: Fonte de captação
-        updated_at: Atualizado em
-        created_at: Criado em
+        address: Endereço
+        reservations: Reservas
     enums:
       customer:
         genre:

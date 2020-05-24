@@ -18,8 +18,6 @@ pt-BR:
         paid: Pago
         author: Autor
         new_customer: Adicionar novo
-        updated_at: Atualizado em
-        created_at: Criado em
     errors:
       models:
         reservation:

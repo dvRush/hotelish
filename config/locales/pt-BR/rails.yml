@@ -3,6 +3,10 @@ pt-BR:
   "no": Não
   "true": Sim
   "false": Não
+  attributes:
+    created_at: Criado em
+    updated_at: Atualizado em
+    deleted_at: Deletado em
   activerecord:
     errors:
       messages:
