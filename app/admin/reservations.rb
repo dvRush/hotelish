@@ -88,6 +88,7 @@ ActiveAdmin.register Reservation do
           data: { mask_phone: true }
         }
         fc.input :email
+        fc.input :genre, collection: Customer.genre_as_options
         fc.input :contact_source
 
         fc.has_many :address,

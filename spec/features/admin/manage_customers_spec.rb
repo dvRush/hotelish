@@ -17,6 +17,7 @@ feature "Manage Customers", js: true do
     fill_in "Data de nascimento", with: "01/01/2001"
     fill_in "Ocupação",     with: "Engenheiro elétrico"
     fill_in "Telefone",     with: "(86) 12345-1234"
+    select  "Masculino",    from: "Sexo"
     select  "AirBnb",       from: "Fonte de captação"
     fill_in "CEP",          with: "64123-321"
     fill_in "Logradouro",   with: "Rua Dois de Novembro"
@@ -37,6 +38,7 @@ feature "Manage Customers", js: true do
     expect(page).to have_content "01 de Janeiro de 2001"
     expect(page).to have_content "Engenheiro elétrico"
     expect(page).to have_content "(86) 12345-1234"
+    expect(page).to have_content "Masculino"
     expect(page).to have_content "AirBnb"
     expect(page).to have_content "64123-321"
     expect(page).to have_content "Rua Dois de Novembro"
@@ -49,7 +51,7 @@ feature "Manage Customers", js: true do
 
     click_on "Editar Cliente"
 
-    fill_in "Nome",         with: "Mr Polite"
+    fill_in "Nome",         with: "Ms Polite"
     fill_in "E-mail",       with: "mr@polite.com"
     fill_in "Documento",    with: "987.654.321-00"
     fill_in "RG",           with: "2345678"
@@ -57,6 +59,7 @@ feature "Manage Customers", js: true do
     fill_in "Data de nascimento", with: "02/02/2002"
     fill_in "Ocupação",     with: "Engenheiro de software"
     fill_in "Telefone",     with: "(68) 54321-4321"
+    select  "Feminino",     from: "Sexo"
     select  "OLX",          from: "Fonte de captação"
     fill_in "CEP",          with: "64123-321"
     fill_in "CEP",          with: "64321-123"
@@ -70,7 +73,7 @@ feature "Manage Customers", js: true do
 
     click_on "Atualizar Cliente"
 
-    expect(page).to have_content "Mr Polite"
+    expect(page).to have_content "Ms Polite"
     expect(page).to have_content "mr@polite.com"
     expect(page).to have_content "987.654.321-00"
     expect(page).to have_content "2345678"
@@ -78,6 +81,7 @@ feature "Manage Customers", js: true do
     expect(page).to have_content "02 de Fevereiro de 2002"
     expect(page).to have_content "Engenheiro de software"
     expect(page).to have_content "(68) 54321-4321"
+    expect(page).to have_content "Feminino"
     expect(page).to have_content "OLX"
     expect(page).to have_content "64321-123"
     expect(page).to have_content "Rua Três de Dezembro"

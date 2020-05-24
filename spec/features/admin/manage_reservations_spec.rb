@@ -154,6 +154,7 @@ feature "Manage reservations", js: true do
     fill_in "Cidade",       with: "Teresina"
     fill_in "Estado",       with: "Piauí"
     fill_in "País",         with: "Brasil"
+    select  "Masculino",    from: "Sexo"
 
     select "Flat 101",    from: "Acomodação"
     fill_in "Check-in",   with: "01/01/2020 12:00"
@@ -176,11 +177,14 @@ feature "Manage reservations", js: true do
       click_on "Jhon Doe"
     end
 
+    expect(page).to have_content "Jhon Doe"
     expect(page).to have_content "jhon@doe.com"
+    expect(page).to have_content "Masculino"
     expect(page).to have_content "123.456.789-00"
     expect(page).to have_content "7564321"
     expect(page).to have_content "SSP PI"
     expect(page).to have_content "(86) 12345-1234"
+    expect(page).to have_content "Masculino"
     expect(page).to have_content "64123-321"
     expect(page).to have_content "Rua Dois de Novembro"
     expect(page).to have_content "1234"

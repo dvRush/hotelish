@@ -9,6 +9,7 @@ pt-BR:
         name: Nome
         email: E-mail
         document: Documento
+        genre: Sexo
         rg: RG
         rg_emitter: RG (orgão emissor)
         birthdate: Data de nascimento
@@ -17,3 +18,8 @@ pt-BR:
         contact_source: Fonte de captação
         updated_at: Atualizado em
         created_at: Criado em
+    enums:
+      customer:
+        genre:
+          female: Feminino
+          male: Masculino

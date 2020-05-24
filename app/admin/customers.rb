@@ -26,6 +26,7 @@ ActiveAdmin.register Customer do
       row :occupation
       row :phone
       row :email
+      row(:genre) { customer.genre_text }
       row :contact_source
     end
 
@@ -60,6 +61,7 @@ ActiveAdmin.register Customer do
       f.input :occupation
       f.input :phone, input_html: { data: { mask_phone: true } }
       f.input :email
+      f.input :genre, collection: Customer.genre_as_options
       f.input :contact_source
 
       f.inputs do
@@ -105,6 +107,7 @@ ActiveAdmin.register Customer do
     :birthdate,
     :occupation,
     :phone,
+    :genre,
     :contact_source_id,
     address_attributes: [
       :zip_code,
