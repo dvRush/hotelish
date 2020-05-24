@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_030621) do
+ActiveRecord::Schema.define(version: 2020_05_24_143459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_04_28_030621) do
     t.string "occupation"
     t.bigint "contact_source_id"
     t.integer "reservations_count", default: 0
+    t.string "rg"
+    t.string "rg_emitter"
     t.index ["contact_source_id"], name: "index_customers_on_contact_source_id"
     t.index ["deleted_at"], name: "index_customers_on_deleted_at"
   end

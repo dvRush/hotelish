@@ -82,6 +82,8 @@ ActiveAdmin.register Reservation do
         fc.input :document, input_html: {
           data: { mask_document: true }
         }
+        fc.input :rg
+        fc.input :rg_emitter
         fc.input :phone, input_html: {
           data: { mask_phone: true }
         }
@@ -141,6 +143,8 @@ ActiveAdmin.register Reservation do
       customer_attributes: [
         :name,
         :document,
+        :rg,
+        :rg_emitter,
         :phone,
         :email,
         :contact_source,

@@ -139,9 +139,11 @@ feature "Manage reservations", js: true do
 
     fill_in "Nome",         with: "Jhon Doe"
     fill_in "E-mail",       with: "jhon@doe.com"
-    fill_in "Documento",    with: "12345678900"
-    fill_in "Telefone",     with: "86123451234"
-    fill_in "CEP",          with: "64123321"
+    fill_in "Documento",    with: "123.456.789-00"
+    fill_in "RG",           with: "7564321"
+    fill_in "RG (orgão emissor)", with: "SSP PI"
+    fill_in "Telefone",     with: "(86) 12345-1234"
+    fill_in "CEP",          with: "64123-321"
     fill_in "Logradouro",   with: "Rua Dois de Novembro"
     fill_in "Número",       with: "1234"
     fill_in "Complemento",  with: "Quadra X"
@@ -167,8 +169,23 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "10 de Janeiro de 2020, 12:00"
       expect(page).to have_content "Espécie"
       expect(page).to have_content "SIM"
-      expect(page).to have_content "Senhor Barriga"
+
+      click_on "Jhon Doe"
     end
+
+    expect(page).to have_content "jhon@doe.com"
+    expect(page).to have_content "123.456.789-00"
+    expect(page).to have_content "7564321"
+    expect(page).to have_content "SSP PI"
+    expect(page).to have_content "(86) 12345-1234"
+    expect(page).to have_content "64123-321"
+    expect(page).to have_content "Rua Dois de Novembro"
+    expect(page).to have_content "1234"
+    expect(page).to have_content "Quadra X"
+    expect(page).to have_content "Centro"
+    expect(page).to have_content "Teresina"
+    expect(page).to have_content "Piauí"
+    expect(page).to have_content "Brasil"
   end
 
   scenario "admin should see a deleted reservation and restore it" do

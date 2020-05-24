@@ -9,6 +9,8 @@ pt-BR:
         name: Nome
         email: E-mail
         document: Documento
+        rg: RG
+        rg_emitter: RG (orgão emissor)
         birthdate: Data de nascimento
         occupation: Ocupação
         phone: Telefone

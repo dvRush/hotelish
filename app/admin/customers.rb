@@ -20,6 +20,8 @@ ActiveAdmin.register Customer do
     attributes_table do
       row :name
       row :document
+      row :rg
+      row :rg_emitter
       row :birthdate
       row :occupation
       row :phone
@@ -49,6 +51,8 @@ ActiveAdmin.register Customer do
       f.input :document, input_html: {
         data: { mask_document: true }
       }
+      f.input :rg
+      f.input :rg_emitter
       f.input :birthdate, as: :string, input_html: {
         value: f.object.birthdate&.strftime("%d/%m/%Y"),
         data: { mask_date: true }
@@ -96,6 +100,8 @@ ActiveAdmin.register Customer do
   permit_params :name,
     :email,
     :document,
+    :rg,
+    :rg_emitter,
     :birthdate,
     :occupation,
     :phone,
