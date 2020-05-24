@@ -30,7 +30,7 @@ ActiveAdmin.register Customer do
     end
 
     panel "Endereço" do
-      attributes_table_for customer.address.decorate do
+      attributes_table_for customer.address&.decorate do
         row :zip_code
         row :street
         row :number
