@@ -3,6 +3,8 @@ ActiveAdmin.register ArrivingsTransport do
 
   config.create_another = true
 
+  filter :name
+
   index do
     column :name
     actions

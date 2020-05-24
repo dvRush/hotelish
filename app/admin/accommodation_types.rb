@@ -3,6 +3,9 @@ ActiveAdmin.register AccommodationType do
 
   config.create_another = true
 
+  filter :accommodation
+  filter :name
+
   index do
     column :name
     column :description

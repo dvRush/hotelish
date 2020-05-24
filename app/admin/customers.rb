@@ -5,6 +5,20 @@ ActiveAdmin.register Customer do
 
   decorate_with CustomerDecorator
 
+  filter :id, as: :select, collection: Customer.all,
+    label: "Busca rápida",
+    input_html: { data: { use_select2: true }}
+
+  filter :name
+  filter :email
+  filter :document
+  filter :rg
+  filter :phone
+  filter :birthdate
+  filter :occupation
+  filter :contact_source
+  filter :genre, as: :select, collection: Customer.genre_as_options
+
   index do
     column do |customer|
       link_to customer.name, admin_customer_path(customer)

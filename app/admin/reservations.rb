@@ -16,6 +16,18 @@ ActiveAdmin.register Reservation do
 
   scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
 
+  filter :customer, input_html: { data: { use_select2: true }}
+  filter :check_in
+  filter :check_out
+  filter :num_guests
+  filter :accommodation
+  filter :contact_source
+  filter :payment_method
+  filter :paid
+  filter :arrivings_transport
+  filter :reason
+  filter :author
+
   index do
     id_column
 

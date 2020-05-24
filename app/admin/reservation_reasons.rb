@@ -3,6 +3,8 @@ ActiveAdmin.register ReservationReason do
 
   config.create_another = true
 
+  filter :name
+
   index do
     column :name
     actions

@@ -7,6 +7,10 @@ ActiveAdmin.register Accommodation do
 
   includes :accommodation_type
 
+  filter :title
+  filter :daily_value
+  filter :available
+
   index do
     column(Accommodation.model_name.human)do |accommodation|
       link_to accommodation.title, admin_accommodation_path(accommodation)
