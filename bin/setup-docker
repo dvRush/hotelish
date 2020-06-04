@@ -1,0 +1,12 @@
+#!/bin/bash env
+
+set -xe
+
+cp docker-compose.yml{.sample,}
+cp env{.sample,}
+
+docker-compose build
+docker-compose pull
+docker-compose run --rm web bundle install
+docker-compose run --rm web bundle exec rake db:create db:migrate db:fixtures:load
+docker-compose up web
