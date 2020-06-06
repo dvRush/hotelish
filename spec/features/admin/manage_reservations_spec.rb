@@ -20,7 +20,7 @@ feature "Manage reservations", js: true do
     select "Avião",           from: "Transporte de chegada"
     select "Espécie",         from: "Forma de pagamento"
     select "OLX",             from: "Fonte de captação"
-    check "Pago"
+    fill_in "Pago em",        with: "02/01/2020 11:00"
 
     click_on "Criar Reserva"
 
@@ -34,7 +34,7 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "Avião"
       expect(page).to have_content "Espécie"
       expect(page).to have_content "OLX"
-      expect(page).to have_content "SIM"
+      expect(page).to have_content "02 de Janeiro de 2020, 11:00"
     end
 
     click_on "Editar Reserva"
@@ -46,7 +46,6 @@ feature "Manage reservations", js: true do
     fill_in "Num. hóspedes",    with: "2"
     select "Depósito bancário", from: "Forma de pagamento"
     select "AirBnb",            from: "Fonte de captação"
-    uncheck "Pago"
 
     click_on "Atualizar Reserva"
 

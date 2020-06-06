@@ -15,7 +15,7 @@ pt-BR:
         arrivings_transport: Transporte de chegada
         payment_method: Forma de pagamento
         contact_source: Fonte de captação
-        paid: Pago
+        paid_at: Pago em
         author: Autor
         new_customer: Adicionar novo
     errors:

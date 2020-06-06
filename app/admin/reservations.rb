@@ -23,7 +23,7 @@ ActiveAdmin.register Reservation do
   filter :accommodation
   filter :contact_source
   filter :payment_method
-  filter :paid
+  filter :paid_at
   filter :arrivings_transport
   filter :reason
   filter :author
@@ -35,7 +35,7 @@ ActiveAdmin.register Reservation do
     column :customer
     column :check_in
     column :check_out
-    column :paid
+    column :paid_at
 
     actions(defaults: false) do |resource|
       localizer = ActiveAdmin::Localizers.resource(active_admin_config)
@@ -138,7 +138,10 @@ ActiveAdmin.register Reservation do
       f.input :arrivings_transport
       f.input :payment_method
       f.input :contact_source
-      f.input :paid
+      f.input :paid_at, as: :string, input_html: {
+        value: f.object.paid_at&.strftime("%d/%m/%Y %H:%M:%S"),
+        data: { mask_datetime: true }
+      }
     end
 
     actions
@@ -155,7 +158,7 @@ ActiveAdmin.register Reservation do
       arrivings_transport_id
       payment_method_id
       contact_source_id
-      paid
+      paid_at
     )
 
     customer_attributes = [
