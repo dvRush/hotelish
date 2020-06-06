@@ -20,6 +20,8 @@ feature "Manage reservations", js: true do
     select "Avião",           from: "Transporte de chegada"
     select "Espécie",         from: "Forma de pagamento"
     select "OLX",             from: "Fonte de captação"
+    fill_in "Valor total",    with: "1000,00"
+    fill_in "Desconto",       with: "50,00"
     fill_in "Pago em",        with: "02/01/2020 11:00"
 
     click_on "Criar Reserva"
@@ -35,6 +37,8 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "Espécie"
       expect(page).to have_content "OLX"
       expect(page).to have_content "02 de Janeiro de 2020, 11:00"
+      expect(page).to have_content "100000"
+      expect(page).to have_content "5000"
     end
 
     click_on "Editar Reserva"

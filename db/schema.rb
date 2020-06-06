@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_042210) do
+ActiveRecord::Schema.define(version: 2020_06_07_042211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,8 @@ ActiveRecord::Schema.define(version: 2020_06_07_042210) do
     t.bigint "reason_id"
     t.bigint "arrivings_transport_id"
     t.datetime "paid_at"
+    t.integer "total_amount"
+    t.integer "discount"
     t.index ["accommodation_id"], name: "index_reservations_on_accommodation_id"
     t.index ["arrivings_transport_id"], name: "index_reservations_on_arrivings_transport_id"
     t.index ["author_id"], name: "index_reservations_on_author_id"

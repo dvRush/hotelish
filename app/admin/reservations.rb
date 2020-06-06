@@ -35,6 +35,7 @@ ActiveAdmin.register Reservation do
     column :customer
     column :check_in
     column :check_out
+    column :total_amount
     column :paid_at
 
     actions(defaults: false) do |resource|
@@ -138,6 +139,12 @@ ActiveAdmin.register Reservation do
       f.input :arrivings_transport
       f.input :payment_method
       f.input :contact_source
+      f.input :total_amount, as: :string, input_html: {
+        data: { mask_money: true }, maxlength: 10
+      }
+      f.input :discount, as: :string, input_html: {
+        data: { mask_money: true }, maxlength: 10
+      }
       f.input :paid_at, as: :string, input_html: {
         value: f.object.paid_at&.strftime("%d/%m/%Y %H:%M:%S"),
         data: { mask_datetime: true }
@@ -158,6 +165,8 @@ ActiveAdmin.register Reservation do
       arrivings_transport_id
       payment_method_id
       contact_source_id
+      total_amount
+      discount
       paid_at
     )
 
