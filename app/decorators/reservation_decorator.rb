@@ -8,7 +8,17 @@ class ReservationDecorator < Draper::Decorator
   end
 
   def total_amount
-    return "" unless model.total_amount
-    model.total_amount.to_money
+    amount_to_money(model.total_amount)
+  end
+
+  def discount
+    amount_to_money(model.discount)
+  end
+
+  private
+
+  def amount_to_money(amount)
+    return "" unless amount.present?
+    amount.to_money
   end
 end
