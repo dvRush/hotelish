@@ -60,7 +60,6 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "09 de Janeiro de 2020, 12:00"
       expect(page).to have_content "Depósito bancário"
       expect(page).to have_content "AirBnb"
-      expect(page).to have_content "NÃO"
       expect(page).to have_content "2"
       expect(page).to have_content "Senhor Barriga"
     end
@@ -93,16 +92,13 @@ feature "Manage reservations", js: true do
       check_out: 10.days.from_now)
 
     # Paids
-    create(:reservation, accommodation: flat_103, paid: true)
+    create(:reservation, :paid, accommodation: flat_103)
 
     # Unpaids
-    create(:reservation, accommodation: flat_104, paid: false)
+    create(:reservation, accommodation: flat_104, paid_at: nil)
 
     # Opens
-    create(:reservation,
-      accommodation: flat_105,
-      check_in: 60.days.from_now,
-      check_out: 70.days.from_now)
+    create(:reservation, accommodation: flat_105, check_in: 60.days.from_now, check_out: 70.days.from_now)
 
     # For current month
     create(:reservation,
@@ -163,8 +159,7 @@ feature "Manage reservations", js: true do
     fill_in "Check-in",   with: "01/01/2020 12:00"
     fill_in "Check-out",  with: "10/01/2020 12:00"
     select "Espécie",     from: "Forma de pagamento"
-
-    check "Pago"
+    fill_in "Pago em",    with: "02/01/2020 11:00"
 
     click_on "Criar Reserva"
 
@@ -175,7 +170,7 @@ feature "Manage reservations", js: true do
       expect(page).to have_content "01 de Janeiro de 2020, 12:00"
       expect(page).to have_content "10 de Janeiro de 2020, 12:00"
       expect(page).to have_content "Espécie"
-      expect(page).to have_content "SIM"
+      expect(page).to have_content "02 de Janeiro de 2020, 11:00"
 
       click_on "Jhon Doe"
     end

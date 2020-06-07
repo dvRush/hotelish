@@ -6,7 +6,7 @@ jhon_doe_reservation:
   num_guests: 1
   payment_method: transfer_payment
   contact_source: olx_contact_source
-  paid: true
+  paid_at: <%= 3.days.ago %>
   author: admin_user
 
 josh_melt_reservation:
@@ -17,7 +17,7 @@ josh_melt_reservation:
   num_guests: 1
   payment_method: cash_payment
   contact_source: instagram_contact_source
-  paid: true
+  paid_at: <%= Time.current %>
   author: admin_user
 
 sr_madruga_reservation:
@@ -27,7 +27,6 @@ sr_madruga_reservation:
   check_out: <%= 10.days.ago %>
   num_guests: 2
   contact_source: airbnb_contact_source
-  paid: false
   author: admin_user
 
 stanford_pines_reservation:
@@ -37,5 +36,4 @@ stanford_pines_reservation:
   check_out: <%= 45.days.from_now %>
   num_guests: 3
   contact_source: google_contact_source
-  paid: false
   author: admin_user

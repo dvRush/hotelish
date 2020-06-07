@@ -7,7 +7,7 @@ FactoryBot.define do
     check_out { 15.days.from_now }
 
     trait :paid do
-      paid { true }
+      paid_at { Time.current }
     end
   end
 end

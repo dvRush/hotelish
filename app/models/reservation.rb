@@ -20,8 +20,8 @@ class Reservation < ApplicationRecord
   validate :check_out_validation_rules
   validate :avoid_double_reservation
 
-  scope :paids,     -> { where(paid: true) }
-  scope :unpaids,   -> { where(paid: false) }
+  scope :paids,     -> { where.not(paid_at: nil) }
+  scope :unpaids,   -> { where(paid_at: nil) }
   scope :opens,     -> { where("check_in >= ?", Time.current) }
 
   scope :actives, -> {
