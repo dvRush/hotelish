@@ -1,4 +1,6 @@
 ActiveAdmin.register Reservation do
+  decorate_with ReservationDecorator
+
   menu priority: 2
 
   config.create_another = true

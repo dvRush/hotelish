@@ -1,7 +1,7 @@
 class AccommodationDecorator < Draper::Decorator
-  delegate_all
-
   using MoneyRefinement
+
+  delegate_all
 
   def daily_value
     model.daily_value.to_money

@@ -1,9 +1,9 @@
 ActiveAdmin.register Accommodation do
+  decorate_with AccommodationDecorator
+
   menu priority: 4
 
   config.create_another = true
-
-  decorate_with AccommodationDecorator
 
   includes :accommodation_type
 

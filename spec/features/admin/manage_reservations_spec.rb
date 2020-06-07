@@ -20,8 +20,8 @@ feature "Manage reservations", js: true do
     select "Avião",           from: "Transporte de chegada"
     select "Espécie",         from: "Forma de pagamento"
     select "OLX",             from: "Fonte de captação"
-    fill_in "Valor total",    with: "1000,00"
-    fill_in "Desconto",       with: "50,00"
+    fill_in "Valor total",    with: "R$ 1.000,00"
+    fill_in "Desconto",       with: "R$ 50,00"
     fill_in "Pago em",        with: "02/01/2020 11:00"
 
     click_on "Criar Reserva"
