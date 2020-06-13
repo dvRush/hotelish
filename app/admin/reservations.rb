@@ -105,7 +105,7 @@ ActiveAdmin.register Reservation do
         fc.input :phone, input_html: { data: { mask_phone: true } }
         fc.input :email
         fc.input :genre, collection: Customer.genre_as_options
-        fc.input :contact_source
+        fc.input :contact_source, collection: ContactSource.ordered
 
         fc.has_many :address,
           heading: Address.model_name.human,
@@ -137,10 +137,10 @@ ActiveAdmin.register Reservation do
         data: { mask_datetime: true }
       }
       f.input :num_guests
-      f.input :reason
-      f.input :arrivings_transport
-      f.input :payment_method
-      f.input :contact_source
+      f.input :reason, collection: ReservationReason.ordered
+      f.input :arrivings_transport, collection: ArrivingsTransport.ordered
+      f.input :payment_method, collection: PaymentMethod.ordered
+      f.input :contact_source, collection: ContactSource.ordered
       f.input :total_amount, as: :string, input_html: {
         data: { mask_money: true }, maxlength: 10
       }
