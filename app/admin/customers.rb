@@ -5,6 +5,8 @@ ActiveAdmin.register Customer do
 
   decorate_with CustomerDecorator
 
+  scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
+
   filter :name
   filter :email
   filter :document
@@ -129,4 +131,11 @@ ActiveAdmin.register Customer do
       :state,
       :country
     ]
+
+  member_action :restore, method: :put do
+    resource = Customer.with_deleted.find(params[:id])
+    resource.restore
+
+    redirect_to resource_path(resource)
+  end
 end

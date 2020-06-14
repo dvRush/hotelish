@@ -295,3 +295,67 @@ end
 module ActiveAdmin::ViewHelpers
   include ApplicationHelper
 end
+
+module ActiveAdmin
+  module Views
+    class IndexAsTable < ActiveAdmin::Component
+      class IndexTableFor < ::ActiveAdmin::Views::TableFor
+
+        private
+
+        def defaults(resource, options = {})
+          if resource&.deleted?
+            restore_action(resource, options)
+          else
+            view_action(resource, options)
+            edit_action(resource, options)
+            destroy_action(resource, options)
+          end
+        end
+
+        def view_action(resource, options = {})
+          localizer = ActiveAdmin::Localizers.resource(active_admin_config)
+          if controller.action_methods.include?('show') && authorized?(ActiveAdmin::Auth::READ, resource)
+            item localizer.t(:view), resource_path(resource), class: "view_link #{options[:css_class]}", title: localizer.t(:view)
+          end
+        end
+
+        def edit_action(resource, options = {})
+          localizer = ActiveAdmin::Localizers.resource(active_admin_config)
+          if controller.action_methods.include?('edit') && authorized?(ActiveAdmin::Auth::UPDATE, resource)
+            item localizer.t(:edit), edit_resource_path(resource), class: "edit_link #{options[:css_class]}", title: localizer.t(:edit)
+          end
+        end
+
+        def destroy_action(resource, options = {})
+          localizer = ActiveAdmin::Localizers.resource(active_admin_config)
+          if controller.action_methods.include?('destroy') && authorized?(ActiveAdmin::Auth::DESTROY, resource)
+            item localizer.t(:delete), resource_path(resource), class: "delete_link #{options[:css_class]}", title: localizer.t(:delete),
+              method: :delete, data: { confirm: localizer.t(:delete_confirmation) }
+          end
+        end
+
+        def restore_action(resource, options = {})
+          localizer = ActiveAdmin::Localizers.resource(active_admin_config)
+
+          return unless controller.action_methods.include?('restore') && \
+            authorized?(ActiveAdmin::Auth::DESTROY, resource) && \
+            resource.deleted?
+
+          # TODO: See controller action_methods
+          # - Get route dinamicaly
+          restore_path = public_send("restore_admin_#{resource.class.name.tableize.singularize.gsub("_decorator", "")}_path", resource)
+
+          item(
+            localizer.t(:restore),
+            restore_path,
+            class: "restore_link member_link",
+            title: localizer.t(:restore),
+            method: :put,
+            data: { confirm: localizer.t(:restore_confirmation) }
+          )
+        end
+      end
+    end
+  end
+end

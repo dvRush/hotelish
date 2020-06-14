@@ -7,6 +7,8 @@ ActiveAdmin.register Accommodation do
 
   includes :accommodation_type
 
+  scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
+
   filter :title
   filter :daily_value
   filter :available
@@ -36,4 +38,11 @@ ActiveAdmin.register Accommodation do
   end
 
   permit_params :title, :description, :daily_value, :available, :accommodation_type_id
+
+  member_action :restore, method: :put do
+    resource = Accommodation.with_deleted.find(params[:id])
+    resource.restore
+
+    redirect_to resource_path(resource)
+  end
 end

@@ -3,6 +3,8 @@ ActiveAdmin.register AccommodationType do
 
   config.create_another = true
 
+  scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
+
   filter :accommodation
   filter :name
 
@@ -22,4 +24,11 @@ ActiveAdmin.register AccommodationType do
   end
 
   permit_params :name, :description
+
+  member_action :restore, method: :put do
+    resource = AccommodationType.with_deleted.find(params[:id])
+    resource.restore
+
+    redirect_to resource_path(resource)
+  end
 end

@@ -5,6 +5,8 @@ ActiveAdmin.register ReservationReason do
 
   filter :name
 
+  scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
+
   index do
     column :name
     actions
@@ -19,4 +21,11 @@ ActiveAdmin.register ReservationReason do
   end
 
   permit_params :name
+
+  member_action :restore, method: :put do
+    resource = ReservationReason.with_deleted.find(params[:id])
+    resource.restore
+
+    redirect_to resource_path(resource)
+  end
 end

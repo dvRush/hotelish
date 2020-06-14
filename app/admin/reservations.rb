@@ -40,39 +40,7 @@ ActiveAdmin.register Reservation do
     column :total_amount
     column :paid_at
 
-    actions(defaults: false) do |resource|
-      localizer = ActiveAdmin::Localizers.resource(active_admin_config)
-
-      if resource.deleted?
-        item(
-          localizer.t(:restore),
-          restore_admin_reservation_path(resource),
-          class: "restore_link member_link",
-          title: localizer.t(:restore),
-          method: :put,
-          data: { confirm: localizer.t(:restore_confirmation) })
-      else
-        item(
-          localizer.t(:view),
-          resource_path(resource),
-          class: "view_link member_link",
-          title: localizer.t(:view))
-
-        item(
-          localizer.t(:edit),
-          edit_resource_path(resource),
-          class: "edit_link member_link",
-          title: localizer.t(:edit))
-
-        item(
-          localizer.t(:delete),
-          resource_path(resource),
-          class: "delete_link member_link",
-          title: localizer.t(:delete),
-          method: :delete,
-          data: { confirm: localizer.t(:delete_confirmation) })
-      end
-    end
+    actions
   end
 
   form do |f|

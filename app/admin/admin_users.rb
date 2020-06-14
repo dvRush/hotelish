@@ -6,6 +6,8 @@ ActiveAdmin.register AdminUser do
   filter :name
   filter :email
 
+  scope I18n.t('activerecord.scopes.only_deleted'), :only_deleted
+
   index do
     selectable_column
     id_column
@@ -27,5 +29,12 @@ ActiveAdmin.register AdminUser do
     end
 
     f.actions
+  end
+
+  member_action :restore, method: :put do
+    resource = AdminUser.with_deleted.find(params[:id])
+    resource.restore
+
+    redirect_to resource_path(resource)
   end
 end
