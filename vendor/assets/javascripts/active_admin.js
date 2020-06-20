@@ -4,6 +4,7 @@
 //= require select2.min
 //= require select2_pt-BR.min
 //= require ./masks
+//= require ./viacep_autofill
 
 $(document).ready(function(){
   var elements = document.querySelectorAll('.without_remove_button');

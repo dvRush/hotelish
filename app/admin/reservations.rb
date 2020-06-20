@@ -81,14 +81,14 @@ ActiveAdmin.register Reservation do
           new_record: false do |fa|
 
           fa.input :zip_code, input_html: {
-            data: { mask_zipcode: true }
+            data: { mask_zipcode: true, zipcode: "input" }
           }
-          fa.input :street
+          fa.input :street, input_html: { data: { zipcode: "street" } }
           fa.input :number
-          fa.input :neighborhood
+          fa.input :neighborhood, input_html: { data: { zipcode: "neighborhood" } }
           fa.input :complement
-          fa.input :city
-          fa.input :state
+          fa.input :city, input_html: { data: { zipcode: "city" } }
+          fa.input :state, input_html: { data: { zipcode: "state" } }
           fa.input :country, as: :string
         end
       end
