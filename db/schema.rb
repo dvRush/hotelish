@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_045201) do
+ActiveRecord::Schema.define(version: 2020_06_20_214612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,7 +150,6 @@ ActiveRecord::Schema.define(version: 2020_06_07_045201) do
     t.datetime "deleted_at"
     t.bigint "contact_source_id"
     t.bigint "payment_method_id"
-    t.string "reason"
     t.bigint "reason_id"
     t.bigint "arrivings_transport_id"
     t.datetime "paid_at"
