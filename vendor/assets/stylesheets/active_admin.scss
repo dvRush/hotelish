@@ -11,8 +11,34 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "select2.min";
+@import "horizontal_table";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+table.horizontal-printable {
+  border-collapse: collapse;
+
+  td {
+    padding: 15px;
+    border: 1px solid black;
+
+    .label {
+      margin: 0;
+      font-size: 10px;
+      font-weight: bolder;
+      text-transform: uppercase;
+    }
+
+    .value {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .label + .value {
+      margin-top: 10px;
+    }
+  }
+}

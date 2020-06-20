@@ -223,6 +223,7 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       post_long: "%d de %B de %Y às %H:%M"
       short: "%d de %B, %H:%M"
+      shortest: "%d/%m/%Y %H:%M"
     pm: ''
   defaults:
     next: 'Próximo'

@@ -52,6 +52,8 @@ class Reservation < ApplicationRecord
       ), check_in: check_in, check_out: check_out)
   end
 
+  delegate :name, to: :payment_method, prefix: true, allow_nil: true
+
   private
 
   def check_out_validation_rules

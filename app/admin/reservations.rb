@@ -201,4 +201,18 @@ ActiveAdmin.register Reservation do
 
     redirect_to resource_path(resource)
   end
+
+  member_action :contract, method: :get do
+    @reservation = Reservation.find(params[:id])
+    @customer = @reservation.customer
+    @accommodation = @reservation.accommodation
+  end
+
+  action_item :contract, only: :show do
+    link_to "Imprimir contrato", contract_admin_reservation_path(reservation)
+  end
+
+  action_item :voltar, only: :contract do
+    link_to "Voltar", admin_reservation_path(resource)
+  end
 end

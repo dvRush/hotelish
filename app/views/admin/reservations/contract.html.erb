@@ -1,0 +1,65 @@
+<h2><%= Customer.model_name.human %></h2>
+
+<table class="horizontal">
+  <tbody>
+    <tr>
+      <%= table_label_value @customer, :name, colspan: 2 %>
+      <%= table_label_value @customer, :document, as: :document %>
+      <%= table_label_value "#{Customer.human_attribute_name(:rg)}:",
+        "#{@customer.rg}#{" (#{@customer.rg_emitter})" if @customer.rg_emitter.present?}" %>
+    </tr>
+    <tr>
+      <%= table_label_value @customer, :occupation %>
+      <%= table_label_value @customer, :birthdate, as: :date %>
+      <%= table_label_value @customer, :phone, as: :phone %>
+      <%= table_label_value @customer, :email  %>
+    </tr>
+
+    <% if @customer.address %>
+      <tr>
+        <%= table_label_value @customer.address, :street %>
+        <%= table_label_value @customer.address, :number %>
+        <%= table_label_value @customer.address, :complement %>
+        <%= table_label_value @customer.address, :neighborhood %>
+      </tr>
+      <tr>
+        <%= table_label_value @customer.address, :zip_code, as: :zip_code %>
+        <%= table_label_value @customer.address, :city %>
+        <%= table_label_value @customer.address, :state %>
+        <%= table_label_value @customer.address, :country %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>
+  <%= Reservation.model_name.human %>
+  <small>#<%= @reservation.id %></small>
+</h2>
+
+<table class="horizontal">
+  <tbody>
+    <tr>
+      <%= table_label_value @reservation, :check_in, as: :datetime, format: :shortest %>
+      <%= table_label_value @reservation, :check_out, as: :datetime, format: :shortest %>
+      <%= table_label_value @reservation, :num_guests %>
+    </tr>
+    <tr>
+      <%= table_label_value "#{PaymentMethod.model_name.human}:", "#{@reservation.payment_method_name}" %>
+      <%= table_label_value @reservation, :total_amount, as: :money %>
+      <%= table_label_value @reservation, :paid_at, as: :datetime, format: :shortest %>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div style="text-align: center;">
+  <p>______________________________________________________________</p>
+  <p>Assinatura do cliente </p>
+</div>
