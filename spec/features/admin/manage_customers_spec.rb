@@ -1,9 +1,9 @@
 require "rails_helper"
 
-feature "Manage Customers", js: true do
+feature "Manage Customers" do
   before { sign_in }
 
-  scenario "admin should be able to create, edit and delete a customer" do
+  scenario "admin should be able to create, edit and delete a customer", js: true do
     create_factories
 
     click_on "Clientes"
@@ -97,6 +97,36 @@ feature "Manage Customers", js: true do
     page.accept_alert
 
     expect(page).to have_content "Não existem Clientes ainda."
+  end
+
+  context "when a customer have reservations" do
+    let(:jhon) { create(:customer, name: "Jhon Doe") }
+    let(:flat_101) { create(:accommodation, title: "Flat 101") }
+
+    let!(:reservation) do
+      create(:reservation,
+        accommodation: flat_101,
+        customer: jhon,
+        num_guests: 7,
+        check_in: "2020-01-01 12:00",
+        check_out: "2020-01-15 12:00",
+        total_amount: 1020_00,
+        paid_at: "2020-01-01 08:00")
+    end
+
+    scenario "it must be listed on customers' page" do
+      click_on "Clientes"
+      click_on "Jhon Doe"
+
+      expect(page).to have_content "Últimas reservas"
+      expect(page).to have_content reservation.id
+      expect(page).to have_content "Flat 101"
+      expect(page).to have_content "7"
+      expect(page).to have_content "01 de Janeiro de 2020, 12:00"
+      expect(page).to have_content "15 de Janeiro de 2020, 12:00"
+      expect(page).to have_content "01 de Janeiro de 2020, 08:00"
+      expect(page).to have_content "R$ 1.020,00"
+    end
   end
 
   private

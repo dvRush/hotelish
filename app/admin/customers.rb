@@ -55,6 +55,26 @@ ActiveAdmin.register Customer do
       end
     end
 
+    panel "Últimas reservas" do
+      table_for(
+        ReservationDecorator.decorate_collection(
+          customer
+            .reservations
+            .includes(:accommodation)
+            .order(created_at: :desc))
+      ) do
+        column :id do |r|
+          link_to r.id, admin_reservation_path(r)
+        end
+        column :accommodation
+        column :num_guests
+        column :check_in
+        column :check_out
+        column :paid_at
+        column :total_amount
+      end
+    end
+
     active_admin_comments
   end
 

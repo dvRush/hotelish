@@ -187,8 +187,11 @@ ActiveAdmin.register Reservation do
       end
 
       super
-      @reservation.customer ||= Customer.new
-      @reservation.customer.address ||= Address.new
+
+      if params.dig(:reservation, :new_customer) == "1"
+        @reservation.customer ||= Customer.new
+        @reservation.customer.address ||= Address.new
+      end
     end
   end
 
