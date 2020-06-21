@@ -1,6 +1,10 @@
 module ApplicationHelper
   using MoneyRefinement
 
+  def app_name
+    ENV.fetch("APP_NAME", "Hotelish")
+  end
+
   def to_phone(number)
     number = String(number)
 
