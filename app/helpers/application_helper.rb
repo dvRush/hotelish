@@ -36,16 +36,18 @@ module ApplicationHelper
     value = object.public_send(attribute)
     separator = options.fetch(:separator, ": ")
 
-    value = case options[:as]&.to_sym
-      when :date, :datetime
-        options[:format] ? l(value, format: options[:format]) : l(value)
-      when :money then to_money(value)
-      when :zip_code then to_zip_code(value)
-      when :phone then to_phone(value)
-      when :document then to_document(value)
-      else
-        value
-      end
+    if value.present?
+      value = case options[:as]&.to_sym
+        when :date, :datetime
+          options[:format] ? l(value, format: options[:format]) : l(value)
+        when :money then to_money(value)
+        when :zip_code then to_zip_code(value)
+        when :phone then to_phone(value)
+        when :document then to_document(value)
+        else
+          value
+        end
+    end
 
     if block_given?
       yield label, value, separator
