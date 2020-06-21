@@ -12,6 +12,7 @@ gem 'draper'
 gem 'activeadmin'
 gem 'activeadmin_dynamic_fields'
 gem 'paranoia'
+gem 'exception_notification'
 
 gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 4.2.0'
