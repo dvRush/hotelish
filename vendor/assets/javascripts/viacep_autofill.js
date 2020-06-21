@@ -10,6 +10,8 @@ var ready = function() {
           var event = new Event('zipcode.error');
 
           document.dispatchEvent(event);
+
+          return false;
         } else {
           var event = new Event('zipcode.success');
 
