@@ -9,5 +9,9 @@ FactoryBot.define do
     trait :paid do
       paid_at { Time.current }
     end
+
+    trait :skip_validation do
+      to_create { |instance| instance.save(validate: false) }
+    end
   end
 end
