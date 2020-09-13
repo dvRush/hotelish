@@ -12,7 +12,7 @@ services:
 
 steps:
 - name: test
-  image: rafaelrpbelo/ruby-ci:2.7.0
+  image: rafaelrpbelo/ruby-ci:2.7.1
   environment:
     BUNDLE_PATH: /bundle
     DB_HOST: db
