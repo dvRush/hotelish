@@ -1,4 +1,4 @@
-[![Build Status](https://drone.rafaelbelo.com.br/api/badges/dvRuts/hotelish/status.svg)](https://drone.rafaelbelo.com.br/dvRuts/hotelish)
+[![Build Status](https://drone.rafaelbelo.com.br/api/badges/dvRush/hotelish/status.svg)](https://drone.rafaelbelo.com.br/dvRush/hotelish)
 
 # README
 
