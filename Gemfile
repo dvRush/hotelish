@@ -5,7 +5,7 @@ ruby '2.7.1'
 
 gem 'rails', '~> 6.0.3'
 gem 'pg'
-gem 'puma', '~> 4.3.4'
+gem 'puma', '~> 4.3.9'
 
 gem 'devise'
 gem 'draper'
