@@ -3,6 +3,8 @@ version: '2'
 services:
   db:
     image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
     volumes:
       - db:/var/lib/postgresql/data
     expose:
